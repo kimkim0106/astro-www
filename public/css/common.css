@@ -1,0 +1,77 @@
+@media (prefers-color-scheme: light) {
+	:root {
+		--main-txt-color: #000;
+		--main-bg-color: #f0f0f0;
+		--main-border-color: #c0c0c0;
+		--sub-border-color: #3f3f3f;
+		--tab-bg-color: #c0c0c0;
+	}
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--main-txt-color: #fff;
+		--main-bg-color: #0f0f0f;
+		--main-border-color: #3f3f3f;
+		--sub-border-color: #c0c0c0;
+		--tab-bg-color: #3f3f3f;
+	}
+}
+
+body {
+	font-family: 'Noto Sans JP', 'Noto Color Emoji', sans-serif;
+	background-color: var(--main-bg-color);
+	color: var(--main-txt-color);
+}
+hr {
+	color: var(--main-border-color);
+}
+h1 {
+	font-size: 3.0em;
+}
+h2 {
+	font-size: 2.0em;
+	color: var(--main-txt-color);
+	background-color: var(--tab-bg-color);
+	padding-left: 5px;
+}
+h3 {
+	font-size: 1.5em;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+h4 {
+	font-size: 1.2em;
+}
+a {
+	color: var(--main-txt-color);
+}
+ul > li {
+	padding-bottom: 10px;
+}
+ul.profile {
+	list-style-type: none;
+	padding-left: 0;
+}
+ul.profile > li > span.name {
+	text-align: right;
+	display: inline-block;
+	width: 170px;
+	padding-right: 10px;
+}
+ul.links {
+	list-style-type: none;
+	padding-left: 0;
+}
+ul.links > li > span.name {
+	text-align: right;
+	display: inline-block;
+	width: 170px;
+	padding-right: 10px;
+}
+span.contents {
+	padding-left: 20px;
+}
+footer.copyright {
+	text-align: center;
+	font-size: 0.8em;
+}
