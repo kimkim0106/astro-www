@@ -1,0 +1,13 @@
+---
+const GA4_MEASUREMENT_ID = import.meta.env.GA4_MEASUREMENT_ID;
+---
+
+<!-- Google tag (gtag.js) -->
+<script async src=`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}` is:inline></script>
+<script is:inline define:vars={{ ga4_measurement_id: GA4_MEASUREMENT_ID }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', ga4_measurement_id);
+</script>
