@@ -7,11 +7,17 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "update-articles": "tsx ./scripts/update-articles.ts"
   },
   "dependencies": {
-    "astro": "^4.14.5",
     "@astrojs/check": "^0.9.3",
+    "astro": "^4.14.5",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "fast-xml-parser": "^4.4.1",
+    "temporal-polyfill": "^0.2.5",
+    "tsx": "^4.19.0"
   }
 }
