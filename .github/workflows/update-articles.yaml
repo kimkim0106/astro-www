@@ -27,6 +27,7 @@ jobs:
         run: |
           git diff --exit-code
           echo "exit_code=$?" >> $GITHUB_OUTPUT
+        continue-on-error: true
 
       - name: Commit changes
         if: ${{ steps.check-for-changes.outputs.exit_code == 1 }}
