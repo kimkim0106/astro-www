@@ -26,6 +26,7 @@ jobs:
       - name: Check for changes
         id: check-for-changes
         run: |
+          set +e
           git diff --exit-code
           if [ $? -eq 0 ]; then
             echo "No changes detected"
