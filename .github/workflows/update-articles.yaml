@@ -27,8 +27,16 @@ jobs:
         id: check-for-changes
         run: |
           git diff --exit-code
-          echo "exit_code=$?" >> $GITHUB_OUTPUT
-        continue-on-error: true
+          if [ $? -eq 0 ]; then
+            echo "No changes detected"
+            exit 0
+          elif [ $? -eq 1 ]; then
+            echo "Changes detected"
+            echo "exit_code=$?" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          echo "An error occurred"
+          exit $?
 
       - name: Commit changes
         if: ${{ steps.check-for-changes.outputs.exit_code == '1' }}
