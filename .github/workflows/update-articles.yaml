@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   update-articles:
@@ -43,15 +44,25 @@ jobs:
           echo "An error occurred"
           exit $exit_code
 
-      - name: Commit changes
+      - name: Create Pull Request
         if: ${{ steps.check-for-changes.outputs.exit_code == '1' }}
         env:
-          TZ: 'Asia/Tokyo'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TZ: 'Asia/Tokyo'
         run: |
+          current_datetime=$(date +"%Y-%m-%d %H:%M:%S")
+          branch_name="update-articles/$(date +%Y-%m-%d-%H-%M-%S)"
+          
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          
+          git checkout -b $branch_name
           git add .
-          current_datetime=$(date +"%Y-%m-%d %H:%M:%S")
           git commit -m "Update articles - $current_datetime"
-          git push
+          git push origin $branch_name
+          
+          gh pr create \
+            --title "Update articles - $current_datetime" \
+            --body "This PR was automatically created by the Update Articles workflow." \
+            --base main \
+            --head $branch_name
