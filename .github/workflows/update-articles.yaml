@@ -44,8 +44,22 @@ jobs:
           echo "An error occurred"
           exit $exit_code
 
-      - name: Create Pull Request
+      - name: Check for existing PR
         if: ${{ steps.check-for-changes.outputs.exit_code == '1' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: check-pr
+        run: |
+          existing_pr=$(gh pr list --search "Update articles - is:open" in:title --json number --jq length)
+          if [ "$existing_pr" -gt "0" ]; then
+            echo "existing_pr=true" >> $GITHUB_OUTPUT
+            echo "Found existing open Update Articles PR, skipping PR creation"
+            exit 0
+          fi
+          echo "existing_pr=false" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        if: ${{ steps.check-for-changes.outputs.exit_code == '1' && steps.check-pr.outputs.existing_pr == 'false' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TZ: 'Asia/Tokyo'
