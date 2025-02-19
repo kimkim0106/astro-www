@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.13.4",
-    "fast-xml-parser": "^4.5.2",
+    "fast-xml-parser": "^5.0.1",
     "temporal-polyfill": "^0.2.5",
     "tsx": "^4.19.2"
   }
