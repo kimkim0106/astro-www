@@ -19,6 +19,6 @@
     "@types/node": "^22.13.4",
     "fast-xml-parser": "^4.5.2",
     "temporal-polyfill": "^0.2.5",
-    "tsx": "^4.19.2"
+    "tsx": "^4.19.3"
   }
 }
