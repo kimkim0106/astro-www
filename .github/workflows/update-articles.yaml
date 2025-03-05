@@ -50,7 +50,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         id: check-pr
         run: |
-          existing_pr=$(gh pr list --search "Update articles - is:open" in:title --json number --jq length)
+          existing_pr=$(gh pr list --search "label:\"Update articles\" is:open" --json number --jq length)
           if [ "$existing_pr" -gt "0" ]; then
             echo "existing_pr=true" >> $GITHUB_OUTPUT
             echo "Found existing open Update Articles PR, skipping PR creation"
@@ -79,4 +79,5 @@ jobs:
             --title "Update articles - $current_datetime" \
             --body "This PR was automatically created by the Update Articles workflow." \
             --base main \
-            --head $branch_name
+            --head $branch_name \
+            --label "Update articles"
