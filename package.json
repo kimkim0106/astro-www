@@ -16,7 +16,7 @@
     "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@types/node": "^22.13.10",
+    "@types/node": "^22.13.17",
     "fast-xml-parser": "^5.0.9",
     "temporal-polyfill": "^0.2.5",
     "tsx": "^4.19.3"
