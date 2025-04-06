@@ -42,7 +42,8 @@ import files from "../data/files.json";
         {
           links.map((link) => (
             <li>
-              <span class="name">{link.name}:</span><a href={link.url}>{link.account_name}</a>
+              <span class="name">{link.name}:</span>
+              {link.url ? <a href={link.url}>{link.account_name}</a> : link.account_name}
             </li>
           ))
         }
