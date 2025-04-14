@@ -11,17 +11,18 @@
   },
   "extensions": [
     {
-      "name": "main",
+      "name": "Main",
       "type": "main",
       "extension": "2000",
       "identifier": "SHO3RPCR",
       "transferTo": [
-        "3X6JQVUC"
+        "3X6JQVUC",
+        "YQ1DNJB1"
       ]
     },
     {
       "name": "MacBook Air",
-      "type": "other",
+      "type": "phone",
       "extension": "2001",
       "identifier": "3X6JQVUC"
     },
