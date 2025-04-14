@@ -1,20 +1,42 @@
 {
-    "$schema": "https://tkytel.github.io/mantela/0.1/mantela.schema.json",
-    "version": "0.1.0",
-    "aboutMe": {
-        "identifier": "8B741E2B-45F9-4187-9DA1-05D866B79A09",
-        "name": "kimkim0106",
-        "preferredPrefix": [
-            "106",
-            "0106"
-        ]
-    },
-    "extensions": [
-        {
-            "name": "Test Call",
-            "extension": "2099",
-            "type": "information"
-        }
+  "$schema": "https://tkytel.github.io/mantela/0.1/mantela.schema.json",
+  "version": "0.1.0",
+  "aboutMe": {
+    "name": "kimkim0106",
+    "preferredPrefix": [
+      "106",
+      "0106"
     ],
-    "providers": []
+    "identifier": "8b741e2b-45f9-4187-9da1-05d866b79a09"
+  },
+  "extensions": [
+    {
+      "name": "main",
+      "type": "main",
+      "extension": "2000",
+      "identifier": "SHO3RPCR",
+      "transferTo": [
+        "3X6JQVUC"
+      ]
+    },
+    {
+      "name": "MacBook Air",
+      "type": "other",
+      "extension": "2001",
+      "identifier": "3X6JQVUC"
+    },
+    {
+      "name": "Pixel 9 Pro Fold",
+      "extension": "2002",
+      "identifier": "YQ1DNJB1",
+      "type": "smartphone"
+    },
+    {
+      "name": "Test Call",
+      "type": "information",
+      "extension": "2099",
+      "identifier": "84T10U43"
+    }
+  ],
+  "providers": []
 }
