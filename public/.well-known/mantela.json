@@ -12,9 +12,9 @@
   "extensions": [
     {
       "name": "main",
-      "type": "main",
       "extension": "6000",
       "identifier": "SHO3RPCR",
+      "type": "main",
       "transferTo": [
         "3X6JQVUC",
         "YQ1DNJB1",
@@ -29,9 +29,9 @@
     },
     {
       "name": "MacBook Air",
-      "type": "phone",
       "extension": "6002",
-      "identifier": "3X6JQVUC"
+      "identifier": "3X6JQVUC",
+      "type": "phone"
     },
     {
       "name": "IPA402",
@@ -46,5 +46,18 @@
       "type": "information"
     }
   ],
-  "providers": []
+  "providers": [
+    {
+      "name": "MikaNeTEL",
+      "prefix": "510",
+      "identifier": "93b2d256-39c1-4053-bda1-c0643dd40690",
+      "mantela": "https://unstable.kusaremkn.com/.well-known/mantela.json"
+    },
+    {
+      "name": "8yazaki",
+      "prefix": "808",
+      "identifier": "4a96b422-c07e-7b84-82aa-cd665e1e69a8",
+      "mantela": "https://8yazaki.github.io/mantela/mantela.json"
+    }
+  ]
 }
