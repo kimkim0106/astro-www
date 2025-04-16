@@ -72,10 +72,10 @@
       "mantela": "https://www.yude.jp.eu.org/.well-known/mantela.json"
     },
     {
-      "name": "kimkim0106 lab",
+      "name": "kimkim0106 sub",
       "prefix": "61",
       "identifier": "3c558c08-66da-4d79-ba14-db84d9407cf3",
-      "mantela": "https://kimkim0106.net/.well-known/lab-mantela.json"
+      "mantela": "https://kimkim0106.net/.well-known/sub-mantela.json"
     }
   ]
 }
