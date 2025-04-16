@@ -58,6 +58,18 @@
       "prefix": "808",
       "identifier": "4a96b422-c07e-7b84-82aa-cd665e1e69a8",
       "mantela": "https://8yazaki.github.io/mantela/mantela.json"
+    },
+    {
+      "name": "MCeTeLO",
+      "prefix": "917",
+      "identifier": "46fb2dc7-ee07-435d-9a27-0a7b4d43d3d7",
+      "mantela": "https://meishicafei.github.io/.well-known/mantela.json"
+    },
+    {
+      "name": "yude",
+      "prefix": "390",
+      "identifier": "3be47f94-3185-4198-ac3d-ca5ccb573cc2",
+      "mantela": "https://www.yude.jp.eu.org/.well-known/mantela.json"
     }
   ]
 }
