@@ -14,6 +14,18 @@
       "extension": "1000",
       "identifier": "SIRTDZ5P",
       "type": "smartphone"
+    },
+    {
+      "name": "Test Call",
+      "extension": "1903",
+      "identifier": "49ABJ1JQ",
+      "type": "music"
+    },
+    {
+      "name": "1000Hz Tone",
+      "extension": "9876",
+      "type": "music",
+      "identifier": "QD1J97I1"
     }
   ],
   "providers": [
