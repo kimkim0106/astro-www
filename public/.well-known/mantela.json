@@ -76,6 +76,12 @@
       "prefix": "61",
       "identifier": "3c558c08-66da-4d79-ba14-db84d9407cf3",
       "mantela": "https://kimkim0106.net/.well-known/sub-mantela.json"
+    },
+    {
+      "name": "661",
+      "prefix": "AmagasakiSHINANO",
+      "identifier": "5752ca4c-c828-4946-a8f3-7f8272206f2d",
+      "mantela": "https://da-tenshi.github.io/mantela.json"
     }
   ]
 }
