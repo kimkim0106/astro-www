@@ -7,7 +7,10 @@
       "106",
       "0106"
     ],
-    "identifier": "8b741e2b-45f9-4187-9da1-05d866b79a09"
+    "identifier": "8b741e2b-45f9-4187-9da1-05d866b79a09",
+    "sipUsername": "SIP-TRUNK-B83832AE",
+    "sipPassword": "TEZWWkhmbzJRL0E9",
+    "sipServer": "100.81.53.35"
   },
   "extensions": [
     {
@@ -32,6 +35,12 @@
       "extension": "6002",
       "identifier": "3X6JQVUC",
       "type": "phone"
+    },
+    {
+      "name": "N-04B",
+      "extension": "6003",
+      "identifier": "VKH15SFG",
+      "type": "cellphone"
     },
     {
       "name": "IPA402",
