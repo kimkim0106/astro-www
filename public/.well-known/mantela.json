@@ -19,6 +19,8 @@
       "transferTo": [
         "3X6JQVUC",
         "YQ1DNJB1",
+        "VKH15SFG",
+        "M03RQ05J",
         "GJ0E0EZG"
       ]
     },
@@ -39,6 +41,12 @@
       "extension": "6003",
       "identifier": "VKH15SFG",
       "type": "cellphone"
+    },
+    {
+      "name": "600-A2",
+      "extension": "6005",
+      "identifier": "M03RQ05J",
+      "type": "dialphone"
     },
     {
       "name": "IPA402",
