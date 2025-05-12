@@ -23,7 +23,11 @@
         "YQ1DNJB1",
         "VKH15SFG",
         "M03RQ05J",
-        "GJ0E0EZG"
+        "GJ0E0EZG",
+        "K743A8HP",
+        "S6L1VAU9",
+        "RPZJ8QP3",
+        "7VJ1AP5K"
       ]
     },
     {
@@ -51,10 +55,34 @@
       "type": "dialphone"
     },
     {
-      "name": "IPA402",
+      "name": "VE-PVC5J",
       "extension": "6011",
       "identifier": "GJ0E0EZG",
+      "type": "phone"
+    },
+    {
+      "name": "VE-PS105N",
+      "extension": "6011",
+      "identifier": "K743A8HP",
+      "type": "phone"
+    },
+    {
+      "name": "RZ-J90",
+      "extension": "6011",
+      "identifier": "S6L1VAU9",
       "type": "cellphone"
+    },
+    {
+      "name": "316S",
+      "extension": "6011",
+      "identifier": "RPZJ8QP3",
+      "type": "phone"
+    },
+    {
+      "name": "DFML-560E",
+      "extension": "6011",
+      "identifier": "7VJ1AP5K",
+      "type": "modem"
     },
     {
       "name": "Test Call",
@@ -99,6 +127,12 @@
       "prefix": "661",
       "identifier": "5752ca4c-c828-4946-a8f3-7f8272206f2d",
       "mantela": "https://da-tenshi.github.io/mantela.json"
+    },
+    {
+      "name": "scura",
+      "prefix": "862",
+      "identifier": "8400cd7b-9f20-4d1a-8e2e-fa278b245316",
+      "mantela": "https://scuravr.github.io/.well-known/mantela.json"
     }
   ]
 }
