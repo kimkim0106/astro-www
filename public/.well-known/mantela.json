@@ -24,8 +24,7 @@
         "GJ0E0EZG",
         "K743A8HP",
         "S6L1VAU9",
-        "RPZJ8QP3",
-        "7VJ1AP5K"
+        "RPZJ8QP3"
       ]
     },
     {
@@ -53,14 +52,20 @@
       "type": "dialphone"
     },
     {
+      "name": "DFML-560E",
+      "extension": "6006",
+      "identifier": "7VJ1AP5K",
+      "type": "modem"
+    },
+    {
       "name": "VE-PVC5J",
-      "extension": "6011",
+      "extension": "6012",
       "identifier": "GJ0E0EZG",
       "type": "phone"
     },
     {
       "name": "VE-PS105N",
-      "extension": "6011",
+      "extension": "6012",
       "identifier": "K743A8HP",
       "type": "phone"
     },
@@ -75,12 +80,6 @@
       "extension": "6011",
       "identifier": "RPZJ8QP3",
       "type": "phone"
-    },
-    {
-      "name": "DFML-560E",
-      "extension": "6011",
-      "identifier": "7VJ1AP5K",
-      "type": "modem"
     },
     {
       "name": "Test Call",
