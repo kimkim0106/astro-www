@@ -8,9 +8,9 @@
       "0106"
     ],
     "identifier": "8b741e2b-45f9-4187-9da1-05d866b79a09",
-    "sipUsername": "SIP-TRUNK-B83832AE",
-    "sipPassword": "TEZWWkhmbzJRL0E9",
-    "sipServer": "100.81.53.35"
+    "sipUri": [
+      "sip:SIP-TRUNK-B83832AE:TEZWWkhmbzJRL0E9@100.81.53.35:5060"
+    ]
   },
   "extensions": [
     {
