@@ -9,8 +9,8 @@
     ],
     "identifier": "8b741e2b-45f9-4187-9da1-05d866b79a09",
     "sipUri": [
-      "sip:100.81.53.35:5060;transport=udp",
-      "sip:100.81.53.35:5060;transport=tcp"
+      "sip:mikopbx.tail74e766.ts.net:5060;transport=udp",
+      "sip:mikopbx.tail74e766.ts.net:5060;transport=tcp"
     ]
   },
   "extensions": [
