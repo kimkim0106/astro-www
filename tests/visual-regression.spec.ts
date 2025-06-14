@@ -1,7 +1,7 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 
 // フォント読み込み待機用のヘルパー関数
-async function waitForFontsAndContent(page) {
+async function waitForFontsAndContent(page: Page) {
   await page.goto('/');
   await page.waitForLoadState('networkidle');
   
