@@ -13,6 +13,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Type Checking
 - `astro check` - Run TypeScript type checking (included in build command)
 
+### Testing
+- `npm run test` - Run visual regression tests with Playwright
+- `npm run test:visual` - Update visual regression snapshots
+- `npm run test:ui` - Run tests with Playwright UI mode
 ## Architecture
 
 This is an Astro-based personal website that serves as a portfolio/homepage. The architecture is data-driven with automated content updates.
