@@ -1,0 +1,45 @@
+name: Update Visual Regression Snapshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_message:
+        description: 'Commit message for snapshot updates'
+        required: false
+        default: 'Update visual regression snapshots'
+
+jobs:
+  update-snapshots:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Update snapshots
+      run: npm run test:visual
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add tests/
+        git commit -m "${{ github.event.inputs.commit_message }}"
+        git push
+    - name: No changes detected
+      if: steps.verify-changed-files.outputs.changed == 'false'
+      run: echo "No snapshot changes detected"
