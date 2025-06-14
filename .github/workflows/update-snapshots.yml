@@ -12,6 +12,9 @@ jobs:
   update-snapshots:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -32,14 +35,31 @@ jobs:
         else
           echo "changed=false" >> $GITHUB_OUTPUT
         fi
-    - name: Commit and push changes
+    - name: Create Pull Request
       if: steps.verify-changed-files.outputs.changed == 'true'
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        
+        # Create a new branch
+        BRANCH_NAME="update-snapshots-$(date +%Y%m%d-%H%M%S)"
+        git checkout -b "$BRANCH_NAME"
+        
+        # Add and commit changes
         git add tests/
         git commit -m "${{ github.event.inputs.commit_message }}"
-        git push
+        
+        # Push branch
+        git push origin "$BRANCH_NAME"
+        
+        # Create pull request
+        gh pr create \
+          --title "${{ github.event.inputs.commit_message }}" \
+          --body "Visual regression snapshots updated by GitHub Actions workflow." \
+          --base main \
+          --head "$BRANCH_NAME"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: No changes detected
       if: steps.verify-changed-files.outputs.changed == 'false'
       run: echo "No snapshot changes detected"
