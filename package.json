@@ -8,7 +8,10 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "update-articles": "tsx ./scripts/update-articles.ts"
+    "update-articles": "tsx ./scripts/update-articles.ts",
+    "test": "playwright test",
+    "test:visual": "playwright test --update-snapshots",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -16,6 +19,7 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.53.0",
     "@types/node": "^22.15.30",
     "fast-xml-parser": "^5.2.5",
     "temporal-polyfill": "^0.3.0",
