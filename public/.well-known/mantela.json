@@ -108,7 +108,8 @@
       "name": "MCeTeLO",
       "prefix": "917",
       "identifier": "46fb2dc7-ee07-435d-9a27-0a7b4d43d3d7",
-      "mantela": "https://meishicafei.github.io/.well-known/mantela.json"
+      "mantela": "https://meishicafei.github.io/.well-known/mantela.json",
+      "unavailable": true
     },
     {
       "name": "yude",
@@ -139,6 +140,12 @@
       "prefix": "425",
       "identifier": "bbe4aba8-3782-4bef-9539-6b96a895beb9",
       "mantela": "https://raw.githubusercontent.com/keitotobi1/.well-known/refs/heads/main/mantela.json"
+    },
+    {
+      "name": "zin3",
+      "prefix": "333",
+      "identifier": "498a3211-0f85-42a7-b2c0-44fb7095bd67",
+      "mantela": "https://zin3.cc/.well-known/mantela.json"
     }
   ]
 }
