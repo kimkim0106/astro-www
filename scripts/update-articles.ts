@@ -9,7 +9,6 @@ const fetchFeedConfigs = [
         entryUrlRegexp: /https:\/\/kimkim0106\.hatenablog\.com\/entry\/[0-9]{4}\/[0-9]{2}\/[0-9]{2}\/[0-9]{6}/,
     },
 ];
-const articlesLimit = 3;
 
 Promise.all(
     fetchFeedConfigs.map((config) => fetch(config.feedUrl)
@@ -50,7 +49,7 @@ Promise.all(
             url: article.url,
             published: article.published.toPlainDate().toString(),
         };
-    }).slice(0, articlesLimit);
+    });
 
     fs.writeFileSync(targetFilePath, JSON.stringify(output, null, 2));
 });
