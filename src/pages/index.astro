@@ -51,7 +51,7 @@ import files from "../data/files.json";
       <h2 id="blog">Blog</h2>
       <ul>
         {
-          articles.map((article) => (
+          articles.slice(0, 3).map((article) => (
             <li>
               <a href={article.url}>{article.title} ({article.published})</a>
             </li>
