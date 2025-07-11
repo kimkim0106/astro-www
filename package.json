@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.54.0",
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.0.13",
     "fast-xml-parser": "^5.2.5",
     "temporal-polyfill": "^0.3.0",
     "tsx": "^4.20.3"
