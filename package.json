@@ -19,7 +19,7 @@
     "typescript": "^5.9.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.54.2",
+    "@playwright/test": "^1.55.0",
     "@types/node": "^24.1.0",
     "fast-xml-parser": "^5.2.5",
     "temporal-polyfill": "^0.3.0",
