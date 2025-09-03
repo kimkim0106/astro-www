@@ -7,6 +7,10 @@ on:
         description: 'Commit message for snapshot updates'
         required: false
         default: 'Update visual regression snapshots'
+      target_branch:
+        description: 'Target branch for the pull request'
+        required: false
+        default: 'main'
 
 jobs:
   update-snapshots:
@@ -56,7 +60,7 @@ jobs:
         gh pr create \
           --title "${{ github.event.inputs.commit_message }}" \
           --body "Visual regression snapshots updated by GitHub Actions workflow." \
-          --base main \
+          --base "${{ github.event.inputs.target_branch }}" \
           --head "$BRANCH_NAME"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
