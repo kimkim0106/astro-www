@@ -10,7 +10,7 @@ on:
       target_branch:
         description: 'Target branch for the pull request'
         required: false
-        default: 'main'
+        default: ''
 
 jobs:
   update-snapshots:
@@ -57,10 +57,14 @@ jobs:
         git push origin "$BRANCH_NAME"
         
         # Create pull request
+        TARGET_BRANCH="${{ github.event.inputs.target_branch }}"
+        if [ -z "$TARGET_BRANCH" ]; then
+          TARGET_BRANCH="${{ github.ref_name }}"
+        fi
         gh pr create \
           --title "${{ github.event.inputs.commit_message }}" \
           --body "Visual regression snapshots updated by GitHub Actions workflow." \
-          --base "${{ github.event.inputs.target_branch }}" \
+          --base "$TARGET_BRANCH" \
           --head "$BRANCH_NAME"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
