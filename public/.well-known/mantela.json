@@ -1,13 +1,12 @@
 {
   "$schema": "https://tkytel.github.io/mantela/0.1/mantela.schema.json",
-  "version": "0.1.0",
   "aboutMe": {
+    "identifier": "8b741e2b-45f9-4187-9da1-05d866b79a09",
     "name": "kimkim0106",
     "preferredPrefix": [
       "106",
       "0106"
     ],
-    "identifier": "8b741e2b-45f9-4187-9da1-05d866b79a09",
     "sipUri": [
       "sip:mikopbx.tail74e766.ts.net:5060;transport=udp",
       "sip:mikopbx.tail74e766.ts.net:5060;transport=tcp"
@@ -15,10 +14,9 @@
   },
   "extensions": [
     {
-      "name": "main",
       "extension": "6000",
       "identifier": "SHO3RPCR",
-      "type": "main",
+      "name": "main",
       "transferTo": [
         "3X6JQVUC",
         "YQ1DNJB1",
@@ -26,126 +24,149 @@
         "M03RQ05J",
         "GJ0E0EZG",
         "K743A8HP",
+        "JKQ7RCFV",
         "S6L1VAU9",
         "RPZJ8QP3"
-      ]
+      ],
+      "type": "main"
     },
     {
-      "name": "Pixel 9 Pro Fold",
       "extension": "6001",
       "identifier": "YQ1DNJB1",
+      "name": "Pixel 9 Pro Fold",
       "type": "smartphone"
     },
     {
-      "name": "MacBook Air",
       "extension": "6002",
       "identifier": "3X6JQVUC",
+      "name": "MacBook Air",
       "type": "phone"
     },
     {
-      "name": "N-04B",
       "extension": "6003",
       "identifier": "VKH15SFG",
-      "type": "cellphone"
+      "name": "N-04B",
+      "type": "cellphone",
+      "unavailable": true
     },
     {
-      "name": "600-A2",
       "extension": "6005",
       "identifier": "M03RQ05J",
+      "model": "600-A2 via YAMAHA RT58i",
+      "name": "600-A2",
       "type": "dialphone"
     },
     {
-      "name": "DFML-560E",
       "extension": "6006",
       "identifier": "7VJ1AP5K",
-      "type": "modem"
+      "model": "I-O DATA DFML-560E -> YAMAHA RT58i",
+      "name": "DFML-560E",
+      "type": "modem",
+      "unavailable": true
     },
     {
-      "name": "VE-PVC5J",
       "extension": "6012",
       "identifier": "GJ0E0EZG",
-      "type": "phone"
+      "model": "Panasonic VE-PVC5J -> AIWA TM-AD1282 -> NTT-AT DSU AT144K -> ALEXON IPA402",
+      "name": "VE-PVC5J",
+      "type": "phone",
+      "unavailable": true
     },
     {
-      "name": "VE-PS105N",
       "extension": "6012",
       "identifier": "K743A8HP",
-      "type": "phone"
+      "model": "VE-PS105N -> Panasonic VE-PVC5J -> AIWA TM-AD1282 -> NTT-AT DSU AT144K -> ALEXON IPA402",
+      "name": "VE-PS105N",
+      "type": "phone",
+      "unavailable": true
     },
     {
-      "name": "RZ-J90",
+      "extension": "6011",
+      "identifier": "JKQ7RCFV",
+      "model": "Chunghua Telecom e-life FM006 ->NEC Aterm IWX70 -> ALEXON IPA402",
+      "name": "FM006",
+      "type": "phone",
+      "unavailable": true
+    },
+    {
       "extension": "6011",
       "identifier": "S6L1VAU9",
-      "type": "cellphone"
+      "model": "SANYO RZ-J90 -> NEC Aterm IWX70 -> ALEXON IPA402",
+      "name": "RZ-J90",
+      "type": "cellphone",
+      "unavailable": true
     },
     {
-      "name": "316S",
       "extension": "6011",
       "identifier": "RPZJ8QP3",
-      "type": "phone"
+      "model": "NTT Personal 316S -> NEC Aterm IWX70 -> ALEXON IPA402",
+      "name": "316S",
+      "type": "phone",
+      "unavailable": true
     },
     {
-      "name": "Test Call",
       "extension": "1234",
       "identifier": "84T10U43",
+      "name": "Test Call",
       "type": "information"
     }
   ],
   "providers": [
     {
-      "name": "MikaNeTEL",
-      "prefix": "510",
       "identifier": "93b2d256-39c1-4053-bda1-c0643dd40690",
-      "mantela": "https://unstable.kusaremkn.com/.well-known/mantela.json"
+      "mantela": "https://unstable.kusaremkn.com/.well-known/mantela.json",
+      "name": "MikaNeTEL",
+      "prefix": "510"
     },
     {
-      "name": "8yazaki",
-      "prefix": "808",
       "identifier": "4a96b422-c07e-7b84-82aa-cd665e1e69a8",
-      "mantela": "https://8yazaki.github.io/mantela/mantela.json"
+      "mantela": "https://8yazaki.github.io/mantela/mantela.json",
+      "name": "8yazaki",
+      "prefix": "808"
     },
     {
-      "name": "MCeTeLO",
-      "prefix": "917",
       "identifier": "46fb2dc7-ee07-435d-9a27-0a7b4d43d3d7",
       "mantela": "https://meishicafei.github.io/.well-known/mantela.json",
+      "name": "MCeTeLO",
+      "prefix": "917",
       "unavailable": true
     },
     {
-      "name": "yude",
-      "prefix": "390",
       "identifier": "3be47f94-3185-4198-ac3d-ca5ccb573cc2",
-      "mantela": "https://www.yude.jp.eu.org/.well-known/mantela.json"
+      "mantela": "https://www.yude.jp.eu.org/.well-known/mantela.json",
+      "name": "yude",
+      "prefix": "390"
     },
     {
-      "name": "kimkim0106 sub",
-      "prefix": "61",
       "identifier": "3c558c08-66da-4d79-ba14-db84d9407cf3",
-      "mantela": "https://kimkim0106.net/.well-known/sub-mantela.json"
+      "mantela": "https://kimkim0106.net/.well-known/sub-mantela.json",
+      "name": "kimkim0106 sub",
+      "prefix": "61"
     },
     {
-      "name": "AmagasakiSHINANO",
-      "prefix": "661",
       "identifier": "5752ca4c-c828-4946-a8f3-7f8272206f2d",
-      "mantela": "https://da-tenshi.github.io/mantela.json"
+      "mantela": "https://da-tenshi.github.io/mantela.json",
+      "name": "AmagasakiSHINANO",
+      "prefix": "661"
     },
     {
-      "name": "scura",
-      "prefix": "862",
       "identifier": "8400cd7b-9f20-4d1a-8e2e-fa278b245316",
-      "mantela": "https://scuravr.github.io/.well-known/mantela.json"
+      "mantela": "https://scuravr.github.io/.well-known/mantela.json",
+      "name": "scura",
+      "prefix": "862"
     },
     {
-      "name": "keitotobi1",
-      "prefix": "425",
       "identifier": "bbe4aba8-3782-4bef-9539-6b96a895beb9",
-      "mantela": "https://raw.githubusercontent.com/keitotobi1/.well-known/refs/heads/main/mantela.json"
+      "mantela": "https://raw.githubusercontent.com/keitotobi1/.well-known/refs/heads/main/mantela.json",
+      "name": "keitotobi1",
+      "prefix": "425"
     },
     {
-      "name": "zin3",
-      "prefix": "333",
       "identifier": "498a3211-0f85-42a7-b2c0-44fb7095bd67",
-      "mantela": "https://zin3.cc/.well-known/mantela.json"
+      "mantela": "https://zin3.cc/.well-known/mantela.json",
+      "name": "zin3",
+      "prefix": "333"
     }
-  ]
+  ],
+  "version": "0.1.0"
 }
