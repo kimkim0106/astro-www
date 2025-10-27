@@ -3,6 +3,7 @@ import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import profiles from "../data/profiles.json";
 import links from "../data/links.json";
 import articles from "../data/articles.json";
+import books from "../data/books.json";
 import files from "../data/files.json";
 ---
 
@@ -61,6 +62,17 @@ import files from "../data/files.json";
       <span class="contents">
         Read more on <a href="https://kimkim0106.hatenablog.com/">kimkim0106's blog</a>.
       </span>
+
+      <h2 id="books">Books</h2>
+      <ul>
+        {
+          books.map((book) => (
+            <li>
+              <a href={book.url}>{book.name} ({book.published} {book.event_name})</a>
+            </li>
+          ))
+        }
+      </ul>
 
       <h2 id="slides">Slides</h2>
       <ul>
