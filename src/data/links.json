@@ -1,7 +1,7 @@
 [
   {
     "name": "X (Twitter)",
-    "url": "https://twitter.com/kimkim0106_3218",
+    "url": "https://x.com/kimkim0106_3218",
     "account_name": "@kimkim0106_3218"
   },
   {
@@ -10,18 +10,18 @@
     "account_name": "@kimkim0106@misskey.io"
   },
   {
+    "name": "GitHub",
+    "url": "https://github.com/kimkim0106",
+    "account_name": "kimkim0106"
+  },
+  {
     "name": "VRChat",
     "url": "https://vrchat.com/home/user/usr_e83803e9-b197-46f1-8796-c392ce616e6c",
     "account_name": "kimkim0106"
   },
   {
-    "name": "Discord",
-    "url": "https://discordapp.com/users/579523386414333963",
-    "account_name": "kimkim0106"
-  },
-  {
-    "name": "GitHub",
-    "url": "https://github.com/kimkim0106",
+    "name": "BOOTH",
+    "url": "https://kimkim0106.booth.pm/",
     "account_name": "kimkim0106"
   }
 ]
