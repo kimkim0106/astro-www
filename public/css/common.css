@@ -18,7 +18,7 @@
 }
 
 body {
-	font-family: 'Noto Sans JP', 'Noto Color Emoji', sans-serif;
+	font-family: 'Noto Sans JP', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 	background-color: var(--main-bg-color);
 	color: var(--main-txt-color);
 }
