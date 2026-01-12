@@ -5,6 +5,8 @@ import links from "../data/links.json";
 import articles from "../data/articles.json";
 import books from "../data/books.json";
 import files from "../data/files.json";
+
+const currentYear = new Date().getFullYear();
 ---
 
 <html lang="ja">
@@ -91,7 +93,7 @@ import files from "../data/files.json";
     </article>
     <footer class="copyright">
       <hr />
-      &copy; 2011-2025 kimkim0106
+      &copy; 2011-{currentYear} kimkim0106
     </footer>
   </body>
 </html>
