@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { XMLParser } from 'fast-xml-parser';
 import { Temporal } from 'temporal-polyfill';
+import type { Slide } from '../src/data/types.js';
 
 const targetFilePath = './src/data/slides.json';
 const feedUrl = 'https://speakerdeck.com/kimkim0106.atom';
@@ -64,7 +65,7 @@ fetch(feedUrl)
             return Temporal.ZonedDateTime.compare(b.published, a.published);
         });
 
-        const output = sorted.map((deck) => {
+        const output: Slide[] = sorted.map((deck) => {
             return {
                 title: deck.title,
                 url: deck.url,

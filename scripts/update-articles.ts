@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { XMLParser } from 'fast-xml-parser';
 import { Temporal } from 'temporal-polyfill';
+import type { Article } from '../src/data/types.js';
 
 const targetFilePath = './src/data/articles.json';
 const fetchFeedConfigs = [
@@ -43,7 +44,7 @@ Promise.all(
         return Temporal.ZonedDateTime.compare(b.published, a.published);
     });
     
-    const output = newArticles.map((article) => {
+    const output: Article[] = newArticles.map((article) => {
         return {
             title: article.title,
             url: article.url,
