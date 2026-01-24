@@ -81,7 +81,7 @@ const currentYear = new Date().getFullYear();
         {
           decks.map((deck) => (
             <li>
-              <a href={deck.url}>{deck.title} ({deck.published})</a>
+              <a href={deck.url}>{deck.title} ({deck.published}{deck.event ? ` @${deck.event}` : ''})</a>
             </li>
           ))
         }
