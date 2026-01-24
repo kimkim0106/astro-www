@@ -79,7 +79,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           git checkout -b $branch_name
-          git add .
+          git add src/data/ tests/
           git commit -m "Update slides - $current_datetime"
           git push origin $branch_name
 
