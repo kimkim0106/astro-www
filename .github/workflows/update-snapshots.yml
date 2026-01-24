@@ -8,7 +8,7 @@ on:
         required: false
         default: 'Update visual regression snapshots'
       target_branch:
-        description: 'Target branch for the pull request'
+        description: 'Target branch for the pull request (default: the branch selected in "Use workflow from")'
         required: false
         default: ''
 
@@ -30,7 +30,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Update snapshots
-      run: npm run test:visual
+      run: npm run update-snapshots
     - name: Check for changes
       id: verify-changed-files
       run: |
