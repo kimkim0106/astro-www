@@ -6,12 +6,25 @@ const targetFilePath = './src/data/slides.json';
 const feedUrl = 'https://speakerdeck.com/kimkim0106.atom';
 const maxSlides = 3;
 
+interface AtomEntry {
+    title: string;
+    link: { '@_href': string } | { '@_href': string }[];
+    published: string;
+}
+
+function getEntryUrl(link: AtomEntry['link']): string {
+    if (Array.isArray(link)) {
+        return link[0]?.['@_href'] ?? '';
+    }
+    return link?.['@_href'] ?? '';
+}
+
 fetch(feedUrl)
     .then((res) => res.text())
     .then((text) => {
         const parser = new XMLParser({ ignoreAttributes: false });
         const result = parser.parse(text);
-        const entries = (() => {
+        const entries: AtomEntry[] = (() => {
             if (!result.feed.entry) {
                 console.log('No entries found');
                 return [];
@@ -20,14 +33,14 @@ fetch(feedUrl)
                 return [ result.feed.entry ];
             }
             else {
-                return result.feed.entry as any[];
+                return result.feed.entry;
             }
         })();
 
-        const slides = entries.map((entry: { title: string, link: { '@_href': string }, published: string }) => {
+        const slides = entries.map((entry) => {
             return {
                 title: entry.title,
-                url: entry.link['@_href'],
+                url: getEntryUrl(entry.link),
                 published: Temporal.Instant.from(entry.published).toZonedDateTimeISO('Asia/Tokyo'),
             };
         });
@@ -45,4 +58,8 @@ fetch(feedUrl)
         });
 
         fs.writeFileSync(targetFilePath, JSON.stringify(output, null, 2));
+    })
+    .catch((error) => {
+        console.error('Failed to update slides:', error);
+        process.exit(1);
     });
