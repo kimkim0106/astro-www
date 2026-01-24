@@ -1,14 +1,17 @@
 [
   {
-    "name": "ゲームボーイに画像表示させよう！ (2024-11-02 @第2回 バチャリアLT)",
-    "url": "//files.kimkim0106.net/20241102_gameboy_show_image.pdf"
+    "title": "ゲームボーイでいろいろ「つながった」",
+    "url": "https://speakerdeck.com/kimkim0106/gemuboideiroiro-tunagatuta",
+    "published": "2026-01-19"
   },
   {
-    "name": "ゲームボーイのアーキテクチャ (2024-04-23 @VRChat CS集会)",
-    "url": "//files.kimkim0106.net/20240423_gameboy_architecture.pdf"
+    "title": "ゲームボーイでLT",
+    "url": "https://speakerdeck.com/kimkim0106/gemuboidelt",
+    "published": "2025-10-18"
   },
   {
-    "name": "ゲームボーイアプリ開発のはじめかた (2024-01-27 @VRChat エンジニア作業飲み集会)",
-    "url": "//files.kimkim0106.net/20240127_how_to_start_gb_dev.pdf"
+    "title": "レトロゲームから学ぶ通信技術の歴史",
+    "url": "https://speakerdeck.com/kimkim0106/retorogemukaraxue-butong-xin-ji-shu-noli-shi",
+    "published": "2025-07-10"
   }
 ]
