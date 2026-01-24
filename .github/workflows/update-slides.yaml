@@ -1,0 +1,83 @@
+name: Update Slides
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-slides:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update slides
+        run: npm run update-slides
+
+      - name: Check for changes
+        id: check-for-changes
+        shell: bash {0}
+        run: |
+          git diff --exit-code
+          exit_code=$?
+          if [ $exit_code -eq 0 ]; then
+            echo "No changes detected"
+            exit 0
+          elif [ $exit_code -eq 1 ]; then
+            echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
+            echo "Changes detected"
+            exit 0
+          fi
+          echo "An error occurred"
+          exit $exit_code
+
+      - name: Check for existing PR
+        if: ${{ steps.check-for-changes.outputs.exit_code == '1' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: check-pr
+        run: |
+          existing_pr=$(gh pr list --search "label:\"Update slides\" is:open" --json number --jq length)
+          if [ "$existing_pr" -gt "0" ]; then
+            echo "existing_pr=true" >> $GITHUB_OUTPUT
+            echo "Found existing open Update Slides PR, skipping PR creation"
+            exit 0
+          fi
+          echo "existing_pr=false" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        if: ${{ steps.check-for-changes.outputs.exit_code == '1' && steps.check-pr.outputs.existing_pr == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TZ: 'Asia/Tokyo'
+        run: |
+          current_datetime=$(date +"%Y-%m-%d %H:%M:%S")
+          branch_name="update-slides/$(date +%Y-%m-%d-%H-%M-%S)"
+
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git checkout -b $branch_name
+          git add .
+          git commit -m "Update slides - $current_datetime"
+          git push origin $branch_name
+
+          gh pr create \
+            --title "Update slides - $current_datetime" \
+            --body "This PR was automatically created by the Update Slides workflow." \
+            --base main \
+            --head $branch_name \
+            --label "Update slides"
