@@ -22,17 +22,25 @@ function getEntryUrl(link: AtomEntry['link']): string {
 function getEventName(content: AtomEntry['content']): string {
     const text = typeof content === 'string' ? content : content?.['#text'] ?? '';
     const match = text.match(/^\d{4}\/\d{2}\/\d{2}\s+(.+?)\s+にて発表$/);
+    if (!match && text) {
+        console.warn('Event name extraction failed for content:', text);
+    }
     return match?.[1] ?? '';
 }
 
 fetch(feedUrl)
-    .then((res) => res.text())
+    .then((res) => {
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.text();
+    })
     .then((text) => {
         const parser = new XMLParser({ ignoreAttributes: false });
         const result = parser.parse(text);
         const entries: AtomEntry[] = (() => {
             if (!result.feed.entry) {
-                console.log('No entries found');
+                console.warn('No entries found');
                 return [];
             }
             else if (!Array.isArray(result.feed.entry)) {
