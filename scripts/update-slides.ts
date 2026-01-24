@@ -2,7 +2,7 @@ import fs from 'fs';
 import { XMLParser } from 'fast-xml-parser';
 import { Temporal } from 'temporal-polyfill';
 
-const targetFilePath = './src/data/files.json';
+const targetFilePath = './src/data/slides.json';
 const feedUrl = 'https://speakerdeck.com/kimkim0106.atom';
 const maxSlides = 3;
 
