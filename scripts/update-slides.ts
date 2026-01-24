@@ -4,27 +4,19 @@ import { Temporal } from 'temporal-polyfill';
 import type { Slide } from '../src/data/types.js';
 
 const targetFilePath = './src/data/slides.json';
-const feedUrl = 'https://speakerdeck.com/kimkim0106.atom';
+const feedUrl = 'https://speakerdeck.com/kimkim0106.rss';
 
-interface AtomEntry {
+interface RssItem {
     title: string;
-    link: { '@_href': string } | { '@_href': string }[];
-    content: { '#text': string } | string;
-    published: string;
+    link: string;
+    description: string;
+    pubDate: string;
 }
 
-function getEntryUrl(link: AtomEntry['link']): string {
-    if (Array.isArray(link)) {
-        return link[0]?.['@_href'] ?? '';
-    }
-    return link?.['@_href'] ?? '';
-}
-
-function getEventName(content: AtomEntry['content']): string {
-    const text = typeof content === 'string' ? content : content?.['#text'] ?? '';
-    const match = text.match(/^\d{4}\/\d{2}\/\d{2}\s+(.+?)\s+にて発表$/);
-    if (!match && text) {
-        console.warn('Event name extraction failed for content:', text);
+function getEventName(description: string): string {
+    const match = description.match(/^\d{4}\/\d{2}\/\d{2}\s+(.+?)\s+にて発表$/);
+    if (!match && description) {
+        console.warn('Event name extraction failed for description:', description);
     }
     return match?.[1] ?? '';
 }
@@ -39,25 +31,25 @@ fetch(feedUrl)
     .then((text) => {
         const parser = new XMLParser({ ignoreAttributes: false });
         const result = parser.parse(text);
-        const entries: AtomEntry[] = (() => {
-            if (!result.feed.entry) {
-                console.warn('No entries found');
+        const items: RssItem[] = (() => {
+            if (!result.rss.channel.item) {
+                console.warn('No items found');
                 return [];
             }
-            else if (!Array.isArray(result.feed.entry)) {
-                return [ result.feed.entry ];
+            else if (!Array.isArray(result.rss.channel.item)) {
+                return [ result.rss.channel.item ];
             }
             else {
-                return result.feed.entry;
+                return result.rss.channel.item;
             }
         })();
 
-        const decks = entries.map((entry) => {
+        const decks = items.map((item) => {
             return {
-                title: entry.title,
-                url: getEntryUrl(entry.link),
-                event: getEventName(entry.content),
-                published: Temporal.Instant.from(entry.published).toZonedDateTimeISO('Asia/Tokyo'),
+                title: item.title,
+                url: item.link,
+                event: getEventName(item.description),
+                published: Temporal.Instant.from(new Date(item.pubDate).toISOString()).toZonedDateTimeISO('Asia/Tokyo'),
             };
         });
 

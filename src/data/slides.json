@@ -9,24 +9,42 @@
     "title": "ゲームボーイでLT",
     "url": "https://speakerdeck.com/kimkim0106/gemuboidelt",
     "event": "レトロゲームから得た学びの発表 #04",
-    "published": "2025-10-18"
+    "published": "2025-10-16"
   },
   {
     "title": "レトロゲームから学ぶ通信技術の歴史",
     "url": "https://speakerdeck.com/kimkim0106/retorogemukaraxue-butong-xin-ji-shu-noli-shi",
     "event": "レトロゲームから得た学びの発表 #03",
-    "published": "2025-07-10"
+    "published": "2025-07-09"
   },
   {
     "title": "レトロゲームから学ぶ半導体の歴史",
     "url": "https://speakerdeck.com/kimkim0106/retorogemukaraxue-buban-dao-ti-noli-shi",
     "event": "レトロゲームから得た学びの発表 #02",
-    "published": "2025-05-01"
+    "published": "2025-04-24"
   },
   {
     "title": "Perlでゲームボーイアセンブラプログラミング",
     "url": "https://speakerdeck.com/kimkim0106/perldegemuboiasenburapuroguramingu",
     "event": "レトロゲームから得た学びの発表 #01",
-    "published": "2025-02-05"
+    "published": "2025-01-28"
+  },
+  {
+    "title": "ゲームボーイに画像表示させよう！",
+    "url": "https://speakerdeck.com/kimkim0106/gemuboinihua-xiang-biao-shi-saseyou",
+    "event": "バチャリアLT #2",
+    "published": "2024-11-02"
+  },
+  {
+    "title": "ゲームボーイのアーキテクチャ",
+    "url": "https://speakerdeck.com/kimkim0106/gemuboinoakitekutiya",
+    "event": "CS集会 #24",
+    "published": "2024-04-23"
+  },
+  {
+    "title": "ゲームボーイアプリ開発の始め方",
+    "url": "https://speakerdeck.com/kimkim0106/gemuboiapurikai-fa-noshi-mefang",
+    "event": "エンジニア集会 LT会 #4",
+    "published": "2024-01-27"
   }
 ]
