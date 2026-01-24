@@ -4,7 +4,6 @@ import { Temporal } from 'temporal-polyfill';
 
 const targetFilePath = './src/data/slides.json';
 const feedUrl = 'https://speakerdeck.com/kimkim0106.atom';
-const maxSlides = 3;
 
 interface AtomEntry {
     title: string;
@@ -57,7 +56,7 @@ fetch(feedUrl)
             return Temporal.ZonedDateTime.compare(b.published, a.published);
         });
 
-        const output = sorted.slice(0, maxSlides).map((slide) => {
+        const output = sorted.map((slide) => {
             return {
                 title: slide.title,
                 url: slide.url,
