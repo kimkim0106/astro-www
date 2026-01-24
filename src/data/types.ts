@@ -31,13 +31,14 @@ export interface Article {
 /**
  * Published book information
  */
-export interface Book {
+export type Book = {
   name: string;
   published: string;
   url?: string;
-  event_name?: string;
-  store_name?: string;
-}
+} & (
+  | { event_name: string; store_name?: never }
+  | { store_name: string; event_name?: never }
+);
 
 /**
  * Presentation slide metadata
