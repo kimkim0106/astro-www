@@ -58,6 +58,14 @@ jobs:
           fi
           echo "existing_pr=false" >> $GITHUB_OUTPUT
 
+      - name: Install Playwright Browsers
+        if: ${{ steps.check-for-changes.outputs.exit_code == '1' && steps.check-pr.outputs.existing_pr == 'false' }}
+        run: npx playwright install --with-deps
+
+      - name: Update snapshots
+        if: ${{ steps.check-for-changes.outputs.exit_code == '1' && steps.check-pr.outputs.existing_pr == 'false' }}
+        run: npm run update-snapshots
+
       - name: Create Pull Request
         if: ${{ steps.check-for-changes.outputs.exit_code == '1' && steps.check-pr.outputs.existing_pr == 'false' }}
         env:
@@ -71,7 +79,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           
           git checkout -b $branch_name
-          git add .
+          git add src/data/ tests/
           git commit -m "Update articles - $current_datetime"
           git push origin $branch_name
           

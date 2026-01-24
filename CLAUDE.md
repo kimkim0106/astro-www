@@ -16,7 +16,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Testing
 - `npm run test` - Run visual regression tests with Playwright
-- `npm run test:visual` - Update visual regression snapshots
+- `npm run update-snapshots` - Update visual regression snapshots
 - `npm run test:ui` - Run tests with Playwright UI mode
 ## Architecture
 
