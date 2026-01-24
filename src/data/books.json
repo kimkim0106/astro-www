@@ -1,7 +1,18 @@
 [
     {
-        "name": "はじめよう！ゲームボーイ開発",
+        "name": "はじめよう！ゲームボーイ開発 Lite版",
+        "published": "2025-12-31",
+        "event_name": "コミケ107"
+    },
+    {
+        "name": "はじめよう！ゲームボーイ開発（電子版）",
         "url": "https://kimkim0106.booth.pm/items/7558326",
+        "published": "2025-10-26",
+        "store_name": "Booth"
+    },
+    {
+        "name": "はじめよう！ゲームボーイ開発",
+        "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034387058",
         "published": "2025-10-26",
         "event_name": "技書博12"
     }
