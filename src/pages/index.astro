@@ -4,7 +4,7 @@ import profiles from "../data/profiles.json";
 import links from "../data/links.json";
 import articles from "../data/articles.json";
 import books from "../data/books.json";
-import files from "../data/files.json";
+import decks from "../data/slides.json";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -79,9 +79,9 @@ const currentYear = new Date().getFullYear();
       <h2 id="slides">Slides</h2>
       <ul>
         {
-          files.map((file) => (
+          decks.slice(0, 3).map((deck) => (
             <li>
-              <a href={file.url}>{file.name}</a>
+              <a href={deck.url}>{deck.title} ({deck.published}{deck.event ? ` @${deck.event}` : ''})</a>
             </li>
           ))
         }

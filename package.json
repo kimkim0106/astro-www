@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "update-articles": "tsx ./scripts/update-articles.ts",
+    "update-slides": "tsx ./scripts/update-slides.ts",
     "test": "playwright test",
     "test:visual": "playwright test --update-snapshots",
     "test:ui": "playwright test --ui"

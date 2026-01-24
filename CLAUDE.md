@@ -9,6 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build` - Build production site with type checking to ./dist/
 - `npm run preview` - Preview built site locally
 - `npm run update-articles` - Fetch latest 3 blog posts from Hatena Blog RSS feed
+- `npm run update-slides` - Fetch latest slides from SpeakerDeck Atom feed
 
 ### Type Checking
 - `astro check` - Run TypeScript type checking (included in build command)
@@ -30,7 +31,7 @@ This is an Astro-based personal website that serves as a portfolio/homepage. The
 - `/src/data/profiles.json` - Personal profile information
 - `/src/data/links.json` - Social media and platform links  
 - `/src/data/articles.json` - Recent blog posts (auto-generated from RSS)
-- `/src/data/files.json` - Presentation slides and documents
+- `/src/data/slides.json` - Presentation slides (auto-generated from SpeakerDeck Atom feed)
 
 ### Blog Article Updates
 The `scripts/update-articles.ts` script:
@@ -39,6 +40,14 @@ The `scripts/update-articles.ts` script:
 - Extracts latest 3 articles with title, URL, and publication date
 - Uses Temporal API for date handling in Asia/Tokyo timezone
 - Updates `/src/data/articles.json` automatically
+
+### Slide Deck Updates
+The `scripts/update-slides.ts` script:
+- Fetches Atom feed from `https://speakerdeck.com/kimkim0106.atom`
+- Parses XML using fast-xml-parser
+- Extracts slide title, URL, event name (from content field), and publication date
+- Uses Temporal API for date handling in Asia/Tokyo timezone
+- Updates `/src/data/slides.json` automatically
 
 ### Styling and Theming
 - Custom CSS with CSS variables in `/public/css/common.css`
