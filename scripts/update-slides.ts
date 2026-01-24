@@ -9,6 +9,7 @@ const maxSlides = 3;
 interface AtomEntry {
     title: string;
     link: { '@_href': string } | { '@_href': string }[];
+    content: { '#text': string } | string;
     published: string;
 }
 
@@ -17,6 +18,12 @@ function getEntryUrl(link: AtomEntry['link']): string {
         return link[0]?.['@_href'] ?? '';
     }
     return link?.['@_href'] ?? '';
+}
+
+function getEventName(content: AtomEntry['content']): string {
+    const text = typeof content === 'string' ? content : content?.['#text'] ?? '';
+    const match = text.match(/^\d{4}\/\d{2}\/\d{2}\s+(.+?)\s+にて発表$/);
+    return match?.[1] ?? '';
 }
 
 fetch(feedUrl)
@@ -41,6 +48,7 @@ fetch(feedUrl)
             return {
                 title: entry.title,
                 url: getEntryUrl(entry.link),
+                event: getEventName(entry.content),
                 published: Temporal.Instant.from(entry.published).toZonedDateTimeISO('Asia/Tokyo'),
             };
         });
@@ -53,6 +61,7 @@ fetch(feedUrl)
             return {
                 title: slide.title,
                 url: slide.url,
+                event: slide.event,
                 published: slide.published.toPlainDate().toString(),
             };
         });
