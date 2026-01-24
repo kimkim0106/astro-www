@@ -43,7 +43,7 @@ fetch(feedUrl)
             }
         })();
 
-        const slides = entries.map((entry) => {
+        const decks = entries.map((entry) => {
             return {
                 title: entry.title,
                 url: getEntryUrl(entry.link),
@@ -52,16 +52,16 @@ fetch(feedUrl)
             };
         });
 
-        const sorted = slides.sort((a, b) => {
+        const sorted = decks.sort((a, b) => {
             return Temporal.ZonedDateTime.compare(b.published, a.published);
         });
 
-        const output = sorted.map((slide) => {
+        const output = sorted.map((deck) => {
             return {
-                title: slide.title,
-                url: slide.url,
-                event: slide.event,
-                published: slide.published.toPlainDate().toString(),
+                title: deck.title,
+                url: deck.url,
+                event: deck.event,
+                published: deck.published.toPlainDate().toString(),
             };
         });
 
