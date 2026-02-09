@@ -1,5 +1,5 @@
 {
-  "$schema": "https://tkytel.github.io/mantela/0.1/mantela.schema.json",
+  "$schema": "https://tkytel.github.io/mantela/0.1.x/mantela.schema.json",
   "aboutMe": {
     "identifier": "8b741e2b-45f9-4187-9da1-05d866b79a09",
     "name": "kimkim0106",
@@ -18,15 +18,10 @@
       "identifier": "SHO3RPCR",
       "name": "main",
       "transferTo": [
-        "3X6JQVUC",
         "YQ1DNJB1",
+        "3X6JQVUC",
         "VKH15SFG",
-        "M03RQ05J",
-        "GJ0E0EZG",
-        "K743A8HP",
-        "JKQ7RCFV",
-        "S6L1VAU9",
-        "RPZJ8QP3"
+        "M03RQ05J"
       ],
       "type": "main"
     },
@@ -46,63 +41,15 @@
       "extension": "6003",
       "identifier": "VKH15SFG",
       "name": "N-04B",
-      "type": "cellphone",
-      "unavailable": true
+      "type": "cellphone"
     },
     {
       "extension": "6005",
       "identifier": "M03RQ05J",
-      "model": "600-A2 via YAMAHA RT58i",
+      "model": "600-A2 -> YAMAHA RT58i",
       "name": "600-A2",
-      "type": "dialphone"
-    },
-    {
-      "extension": "6006",
-      "identifier": "7VJ1AP5K",
-      "model": "I-O DATA DFML-560E -> YAMAHA RT58i",
-      "name": "DFML-560E",
-      "type": "modem",
-      "unavailable": true
-    },
-    {
-      "extension": "6012",
-      "identifier": "GJ0E0EZG",
-      "model": "Panasonic VE-PVC5J -> AIWA TM-AD1282 -> NTT-AT DSU AT144K -> ALEXON IPA402",
-      "name": "VE-PVC5J",
-      "type": "phone",
-      "unavailable": true
-    },
-    {
-      "extension": "6012",
-      "identifier": "K743A8HP",
-      "model": "VE-PS105N -> Panasonic VE-PVC5J -> AIWA TM-AD1282 -> NTT-AT DSU AT144K -> ALEXON IPA402",
-      "name": "VE-PS105N",
-      "type": "phone",
-      "unavailable": true
-    },
-    {
-      "extension": "6011",
-      "identifier": "JKQ7RCFV",
-      "model": "Chunghua Telecom e-life FM006 ->NEC Aterm IWX70 -> ALEXON IPA402",
-      "name": "FM006",
-      "type": "phone",
-      "unavailable": true
-    },
-    {
-      "extension": "6011",
-      "identifier": "S6L1VAU9",
-      "model": "SANYO RZ-J90 -> NEC Aterm IWX70 -> ALEXON IPA402",
-      "name": "RZ-J90",
-      "type": "cellphone",
-      "unavailable": true
-    },
-    {
-      "extension": "6011",
-      "identifier": "RPZJ8QP3",
-      "model": "NTT Personal 316S -> NEC Aterm IWX70 -> ALEXON IPA402",
-      "name": "316S",
-      "type": "phone",
-      "unavailable": true
+      "type": "dialphone",
+      "unavailable": false
     },
     {
       "extension": "1234",
@@ -150,12 +97,6 @@
       "prefix": "661"
     },
     {
-      "identifier": "8400cd7b-9f20-4d1a-8e2e-fa278b245316",
-      "mantela": "https://scuravr.github.io/.well-known/mantela.json",
-      "name": "scura",
-      "prefix": "862"
-    },
-    {
       "identifier": "bbe4aba8-3782-4bef-9539-6b96a895beb9",
       "mantela": "https://raw.githubusercontent.com/keitotobi1/.well-known/refs/heads/main/mantela.json",
       "name": "keitotobi1",
@@ -166,6 +107,12 @@
       "mantela": "https://zin3.cc/.well-known/mantela.json",
       "name": "zin3",
       "prefix": "333"
+    },
+    {
+      "identifier": "edbb2bb2-fa28-11ef-8cbc-6f97f0d24f36",
+      "mantela": "https://www.scrwnl.eu.org/.well-known/mantela.json",
+      "name": "SCRWNLNET",
+      "prefix": "782"
     }
   ],
   "version": "0.1.0"
