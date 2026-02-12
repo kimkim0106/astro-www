@@ -31,7 +31,7 @@ jobs:
         id: check-for-changes
         shell: bash {0}
         run: |
-          git diff --exit-code
+          git diff --exit-code src/data/
           exit_code=$?
           if [ $exit_code -eq 0 ]; then
             echo "No changes detected"
