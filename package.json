@@ -23,7 +23,7 @@
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.3.5",
     "fast-xml-parser": "^5.4.2",
-    "temporal-polyfill": "^0.3.0",
+    "temporal-polyfill": "^0.3.1",
     "tsx": "^4.21.0"
   }
 }
