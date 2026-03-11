@@ -15,7 +15,7 @@
     "test:ui": "playwright test --ui"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
+    "@astrojs/check": "^0.9.7",
     "astro": "^6.0.2",
     "typescript": "^5.9.3"
   },
