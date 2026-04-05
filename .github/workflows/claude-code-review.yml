@@ -12,8 +12,7 @@ on:
 
 jobs:
   claude-review:
-    # Dependabot PRでは実行しない
-    if: github.actor != 'dependabot[bot]'
+    if: github.actor == 'kimkim0106'
 
     runs-on: ubuntu-latest
     permissions:
