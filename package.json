@@ -3,6 +3,10 @@
   "type": "module",
   "version": "1.0.0",
   "license": "MIT",
+  "engines": {
+    "node": ">=24.15.0",
+    "npm": ">=11.10.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
