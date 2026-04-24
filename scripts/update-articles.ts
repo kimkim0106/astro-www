@@ -13,13 +13,18 @@ const fetchFeedConfigs = [
 
 Promise.all(
     fetchFeedConfigs.map((config) => fetch(config.feedUrl)
-        .then((res) => res.text())
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            return res.text();
+        })
         .then((text) => {
             const parser = new XMLParser({ ignoreAttributes: false });
             const result = parser.parse(text);
             const entries = (() => {
                 if (!result.feed.entry) {
-                    console.log('No entries found');
+                    console.warn('No entries found');
                     return [];
                 }
                 else if (!Array.isArray(result.feed.entry)) {
@@ -29,10 +34,15 @@ Promise.all(
                     return result.feed.entry as any[];
                 }
             })();
-            const articles = entries.map((entry: { title: string, link: { '@_href': string }[], published: string }) => {
+            const articles = entries.map((entry: { title: string, link: { '@_href': string } | { '@_href': string }[], published: string }) => {
+                const links = Array.isArray(entry.link) ? entry.link : [ entry.link ];
+                const matchedLink = links.find((element) => element['@_href'].match(config.entryUrlRegexp));
+                if (!matchedLink) {
+                    throw new Error(`No matching URL found for entry: ${entry.title}`);
+                }
                 return {
                     title: entry.title,
-                    url: entry.link.find((element) => element['@_href'].match(config.entryUrlRegexp))!['@_href'],
+                    url: matchedLink['@_href'],
                     published: Temporal.Instant.from(entry.published).toZonedDateTimeISO('Asia/Tokyo'),
                 };
             });
@@ -43,7 +53,7 @@ Promise.all(
     const newArticles = articles.flat().sort((a, b) => {
         return Temporal.ZonedDateTime.compare(b.published, a.published);
     });
-    
+
     const output: Article[] = newArticles.map((article) => {
         return {
             title: article.title,
@@ -53,4 +63,7 @@ Promise.all(
     });
 
     fs.writeFileSync(targetFilePath, JSON.stringify(output, null, 2));
+}).catch((error) => {
+    console.error('Failed to update articles:', error);
+    process.exit(1);
 });
