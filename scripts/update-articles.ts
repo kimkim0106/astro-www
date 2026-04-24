@@ -20,7 +20,7 @@ Promise.all(
             return res.text();
         })
         .then((text) => {
-            const parser = new XMLParser({ ignoreAttributes: false });
+            const parser = new XMLParser({ ignoreAttributes: false, entityExpansionLimit: 10000 });
             const result = parser.parse(text);
             const entries = (() => {
                 if (!result.feed.entry) {
