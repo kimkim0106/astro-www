@@ -92,9 +92,30 @@ jobs:
             --head $branch_name \
             --label "Update slides"
 
+      - name: Close failure issue on success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const dedupeLabel = 'update-slides-failure';
+            const { data: openIssues } = await github.rest.issues.listForRepo({
+              ...context.repo, state: 'open', labels: dedupeLabel, per_page: 1,
+            });
+            if (openIssues.length === 0) return;
+            const issue_number = openIssues[0].number;
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number,
+              body: `Workflow run succeeded, auto-closing: ${runUrl}`,
+            });
+            await github.rest.issues.update({
+              ...context.repo, issue_number, state: 'closed',
+            });
+
       - name: Report failure
         if: failure()
         id: report-failure
+        continue-on-error: true
         uses: actions/github-script@v7
         with:
           script: |
