@@ -8,6 +8,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
+  id-token: write
 
 jobs:
   update-slides:
@@ -89,3 +91,45 @@ jobs:
             --base main \
             --head $branch_name \
             --label "Update slides"
+
+      - name: Report failure
+        if: failure()
+        id: report-failure
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const dedupeLabel = 'update-slides-failure';
+            const labels = ['workflow-failure', dedupeLabel];
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = `Update Slides ワークフローが失敗しました: ${runUrl}`;
+            const { data: existing } = await github.rest.issues.listForRepo({
+              ...context.repo, state: 'open', labels: dedupeLabel,
+            });
+            if (existing.length > 0) {
+              await github.rest.issues.createComment({
+                ...context.repo, issue_number: existing[0].number, body,
+              });
+              core.setOutput('issue_number', existing[0].number);
+              core.setOutput('is_new', 'false');
+            } else {
+              const { data: created } = await github.rest.issues.create({
+                ...context.repo,
+                title: 'Update Slides workflow failing',
+                body, labels,
+              });
+              core.setOutput('issue_number', created.number);
+              core.setOutput('is_new', 'true');
+            }
+
+      - name: Analyze failure with Claude
+        if: failure() && steps.report-failure.outputs.is_new == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          additional_permissions: |
+            actions: read
+          prompt: |
+            Update Slides ワークフロー (run ${{ github.run_id }}) が失敗しました。
+            原因を調査し、Issue #${{ steps.report-failure.outputs.issue_number }} に
+            原因と修正方針をコメントしてください。PR は作成しないでください。
+          claude_args: '--allowed-tools "Bash(gh run view:*),Bash(gh issue view:*),Bash(gh issue comment:*)"'
