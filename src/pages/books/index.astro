@@ -60,7 +60,7 @@ const currentYear = new Date().getFullYear();
         {
           markets.map((market) => (
             <li>
-              {market.date} <a href={market.url}>{market.name} {market.full_name ? `(${market.full_name})` : ""} @{market.location}</a>
+              {market.date} <a href={market.url}>{market.name}{market.full_name ? ` (${market.full_name})` : null} @{market.location}</a>
             </li>
           ))
         }
