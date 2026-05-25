@@ -1,0 +1,74 @@
+---
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
+import books from "../../data/books.json";
+import markets from "../../data/book-markets.json";
+
+const currentYear = new Date().getFullYear();
+---
+
+<html lang="ja">
+  <head>
+    <GoogleAnalytics />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Books | kimkim0106's HP</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+JP:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preload" href="/css/common.css" as="style" />
+    <link rel="stylesheet" href="/css/common.css" type="text/css" />
+    <link rel="preload" href="/css/books.css" as="style" />
+    <link rel="stylesheet" href="/css/books.css" type="text/css" />
+  </head>
+
+  <body>
+    <article>
+      <p class="back-link"><a href="/">← Back to Home</a></p>
+      <h1>Books</h1>
+
+      <h2 id="lineup">Lineup</h2>
+      <ul class="book-catalog">
+        {
+          books.map((book) => (
+            <li>
+              <a href={`/books/${book.slug}/`}>
+                <img src={`/images/books/${book.slug}.png`} alt={book.name} loading="lazy" />
+                <p>
+                  {(book.display_name ?? [book.name]).map((line, index, lines) => (
+                    <>
+                      {line}
+                      {index < lines.length - 1 ? <br /> : null}
+                    </>
+                  ))}
+                </p>
+              </a>
+              <span class="book-edition-tags">
+                {book.editions.some((edition) => edition.type === "print") ? <span>印刷版</span> : null}
+                {book.editions.some((edition) => edition.type === "ebook") ? <span>電子版</span> : null}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+      <h2 id="schedule">Schedule</h2>
+      <ul class="book-markets">
+        {
+          markets.map((market) => (
+            <li>
+              {market.date} <a href={market.url}>{market.name} {market.full_name ? `(${market.full_name})` : ""} @{market.location}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+    <footer class="copyright">
+      <hr />
+      &copy; 2011-{currentYear} kimkim0106
+    </footer>
+  </body>
+</html>

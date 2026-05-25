@@ -1,0 +1,23 @@
+[
+  {
+    "name": "技書博13",
+    "full_name": "第十三回技術書同人誌博覧会",
+    "url": "https://gishohaku.dev/gishohaku13",
+    "date": "2026-05-10",
+    "location": "大田区産業プラザPiO"
+  },
+  {
+    "name": "コミケ107",
+    "full_name": "第107回コミックマーケット",
+    "url": "https://www.comiket.co.jp/info-a/C107/C107Info.html",
+    "date": "2025-12-31",
+    "location": "東京ビッグサイト"
+  },
+  {
+    "name": "技書博12",
+    "full_name": "第十二回技術書同人誌博覧会",
+    "url": "https://gishohaku.dev/gishohaku12",
+    "date": "2025-10-26",
+    "location": "大宮ソニックシティ"
+  }
+]

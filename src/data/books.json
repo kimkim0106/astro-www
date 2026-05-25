@@ -1,32 +1,68 @@
 [
-    {
-        "name": "printlib2ではじめるポケットプリンタ開発（電子版）",
+  {
+    "name": "printlib2ではじめるポケットプリンタ開発",
+    "display_name": ["printlib2ではじめる", "ポケットプリンタ開発"],
+    "slug": "gb_printer_dev",
+    "description": "実はポケットプリンタ開発を使った自作ソフトは簡単に作れるんです！\nこの本では、GBDK 2020 と printlib2 を使ったポケットプリンタ開発方法と活用例を紹介します。",
+    "published": "2026-05-10",
+    "editions": [
+      {
+        "type": "ebook",
+        "name": "BOOTH",
         "url": "https://kimkim0106.booth.pm/items/8349452",
-        "published": "2026-05-17",
-        "store_name": "BOOTH"
-    },
-    {
-        "name": "printlib2ではじめるポケットプリンタ開発",
-        "url": "",
-        "published": "2026-05-10",
-        "event_name": "技書博13"
-    },
-    {
-        "name": "はじめよう！ゲームボーイ開発 Lite版",
-        "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034513534",
-        "published": "2025-12-31",
-        "event_name": "コミケ107"
-    },
-    {
-        "name": "はじめよう！ゲームボーイ開発（電子版）",
+        "published": "2026-05-17"
+      },
+      {
+        "type": "print",
+        "name": "技書博13",
+        "url": "https://gishohaku.dev/gishohaku13/books/ewfih0uiyRh0h288ogPQ",
+        "published": "2026-05-10"
+      }
+    ]
+  },
+  {
+    "name": "はじめよう！ゲームボーイ開発 Lite版",
+    "display_name": ["はじめよう！", "ゲームボーイ開発 Lite版"],
+    "slug": "lets_start_gb_dev_lite",
+    "description": "令和の時代にゲームボーイ！？\n実はまだまだゲームボーイはアツいんです！\nゲームボーイのソフト開発にあなたもチャレンジしてみませんか？\n\n廉価版として内容を厳選しました！",
+    "published": "2025-12-31",
+    "editions": [
+      {
+        "type": "print",
+        "name": "コミケ107",
+        "published": "2025-12-31"
+      },
+      {
+        "type": "print",
+        "name": "NDL",
+        "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034513534"
+      }
+    ]
+  },
+  {
+    "name": "はじめよう！ゲームボーイ開発",
+    "display_name": ["はじめよう！", "ゲームボーイ開発"],
+    "slug": "lets_start_gb_dev",
+    "description": "令和の時代にゲームボーイ！？\n実はまだまだゲームボーイはアツいんです！\nゲームボーイのソフト開発にあなたもチャレンジしてみませんか？",
+    "published": "2025-10-26",
+    "editions": [
+      {
+        "type": "ebook",
+        "name": "BOOTH",
         "url": "https://kimkim0106.booth.pm/items/7558326",
-        "published": "2025-10-26",
-        "store_name": "BOOTH"
-    },
-    {
-        "name": "はじめよう！ゲームボーイ開発",
-        "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034387058",
-        "published": "2025-10-26",
-        "event_name": "技書博12"
-    }
+        "published": "2025-10-26"
+      },
+      {
+        "type": "print",
+        "name": "技書博12",
+        "url": "https://gishohaku.dev/gishohaku12/circles/wRyQkERKyAtFpdR10bai",
+        "published": "2025-10-26"
+      },
+      {
+        "type": "print",
+        "name": "NDL",
+        "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034387058"
+      }
+    ]
+  }
 ]

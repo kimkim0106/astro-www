@@ -1,0 +1,94 @@
+---
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
+import books from "../../data/books.json";
+
+export function getStaticPaths() {
+  return books.map((book) => ({
+    params: { slug: book.slug },
+    props: { book },
+  }));
+}
+
+const { book } = Astro.props;
+const title = `${book.name} | kimkim0106's HP`;
+const currentYear = new Date().getFullYear();
+const printEditions = book.editions.filter((item) => item.type === "print");
+const ebookEditions = book.editions.filter((item) => item.type === "ebook");
+---
+
+<html lang="ja">
+  <head>
+    <GoogleAnalytics />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+JP:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preload" href="/css/common.css" as="style" />
+    <link rel="stylesheet" href="/css/common.css" type="text/css" />
+    <link rel="preload" href="/css/books.css" as="style" />
+    <link rel="stylesheet" href="/css/books.css" type="text/css" />
+  </head>
+
+  <body>
+    <article>
+      <p class="back-link"><a href="/books/">← Back to Books</a></p>
+
+      <h1>{book.name}</h1>
+
+      <div class="book-detail">
+        <section class="book-thumbnail">
+          <img src={`/images/books/${book.slug}.png`} alt={book.name} loading="lazy" />
+        </section>
+
+        <section class="book-description">
+          <h2>Description</h2>
+          <p class="book-description-text">{book.description}</p>
+
+          {
+            printEditions.length > 0 ? (
+              <>
+                <h2>Print editions</h2>
+                <ul class="book-links">
+                  {printEditions.map((item) => (
+                    <li>
+                      {item.url ? <a href={item.url}>{item.name}</a> : <span>{item.name}</span>}
+                      {item.published ? <span class="published">({item.published})</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null
+          }
+
+          {
+            ebookEditions.length > 0 ? (
+              <>
+                <h2>E-book editions</h2>
+                <ul class="book-links">
+                  {ebookEditions.map((item) => (
+                    <li>
+                      {item.url ? <a href={item.url}>{item.name}</a> : <span>{item.name}</span>}
+                      {item.published ? <span class="published">({item.published})</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null
+          }
+        </section>
+      </div>
+    </article>
+
+    <footer class="copyright">
+      <hr />
+      &copy; 2011-{currentYear} kimkim0106
+    </footer>
+  </body>
+</html>

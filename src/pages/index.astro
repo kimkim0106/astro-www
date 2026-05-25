@@ -70,11 +70,14 @@ const currentYear = new Date().getFullYear();
         {
           books.map((book) => (
             <li>
-              <a href={book.url}>{book.name} ({book.published} {book.event_name || book.store_name})</a>
+              <a href={`/books/${book.slug}/`}>{book.name} ({book.published})</a>
             </li>
           ))
         }
       </ul>
+      <span class="contents">
+        Book details are available on <a href="/books/">Books</a>.
+      </span>
 
       <h2 id="slides">Slides</h2>
       <ul>
