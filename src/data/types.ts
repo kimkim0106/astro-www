@@ -28,17 +28,32 @@ export interface Article {
   published: string;
 }
 
+export interface BookEdition {
+  type: 'print' | 'ebook';
+  name: string;
+  url?: string;
+  published?: string;
+}
+
 /**
  * Published book information
  */
-export type Book = {
+export interface Book {
   name: string;
+  display_name?: string[];
+  slug: string;
+  description: string;
   published: string;
-  url?: string;
-} & (
-  | { event_name: string; store_name?: never }
-  | { store_name: string; event_name?: never }
-);
+  editions: BookEdition[];
+}
+
+export interface BookMarket {
+  name: string;
+  full_name?: string;
+  url: string;
+  date: string;
+  location: string;
+}
 
 /**
  * Presentation slide metadata

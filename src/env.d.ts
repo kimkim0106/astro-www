@@ -25,6 +25,12 @@ declare module '../data/books.json' {
   export default books;
 }
 
+declare module '../data/book-markets.json' {
+  import type { BookMarket } from './data/types';
+  const markets: BookMarket[];
+  export default markets;
+}
+
 declare module '../data/slides.json' {
   import type { Slide } from './data/types';
   const slides: Slide[];
