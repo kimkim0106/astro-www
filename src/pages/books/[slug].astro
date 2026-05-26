@@ -1,5 +1,6 @@
 ---
 import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
+import PageMeta from "../../components/PageMeta.astro";
 import books from "../../data/books.json";
 
 export function getStaticPaths() {
@@ -11,6 +12,7 @@ export function getStaticPaths() {
 
 const { book } = Astro.props;
 const title = `${book.name} | kimkim0106's HP`;
+const description = book.description.replace(/\s+/g, " ").trim();
 const currentYear = new Date().getFullYear();
 const printEditions = book.editions.filter((item) => item.type === "print");
 const ebookEditions = book.editions.filter((item) => item.type === "ebook");
@@ -22,6 +24,12 @@ const ebookEditions = book.editions.filter((item) => item.type === "ebook");
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>{title}</title>
+    <PageMeta
+      title={title}
+      description={description}
+      image={`/images/books/${book.slug}.png`}
+      imageAlt={book.name}
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

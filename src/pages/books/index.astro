@@ -1,8 +1,13 @@
 ---
 import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
+import PageMeta from "../../components/PageMeta.astro";
 import books from "../../data/books.json";
 import markets from "../../data/book-markets.json";
 
+const title = "Books | kimkim0106's HP";
+const description = "kimkim0106's self-published books information. And market schedules.";
+// books.json is ordered newest first, so use the latest book cover for the index preview.
+const coverBook = books[0];
 const currentYear = new Date().getFullYear();
 ---
 
@@ -11,7 +16,13 @@ const currentYear = new Date().getFullYear();
     <GoogleAnalytics />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Books | kimkim0106's HP</title>
+    <title>{title}</title>
+    <PageMeta
+      title={title}
+      description={description}
+      image={coverBook ? `/images/books/${coverBook.slug}.png` : undefined}
+      imageAlt={coverBook?.name}
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
