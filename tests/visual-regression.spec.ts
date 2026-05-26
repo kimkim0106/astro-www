@@ -1,8 +1,9 @@
 import { test, expect, type Page } from '@playwright/test';
+import books from '../src/data/books.json' with { type: 'json' };
 
 // フォント読み込み待機用のヘルパー関数
-async function waitForFontsAndContent(page: Page) {
-  await page.goto('/');
+async function waitForFontsAndContent(page: Page, path = '/') {
+  await page.goto(path);
   await page.waitForLoadState('networkidle');
   
   // 動的コンテンツの読み込み完了を待つ
@@ -90,4 +91,35 @@ test.describe('Visual Regression Tests', () => {
       animations: 'disabled',
     });
   });
+
+  test('Books index visual regression', async ({ page }) => {
+    await waitForFontsAndContent(page, '/books/');
+
+    await expect(page).toHaveScreenshot('books-index-full.png', {
+      fullPage: true,
+      animations: 'disabled',
+    });
+  });
+
+  test('Books index mobile visual regression', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+
+    await waitForFontsAndContent(page, '/books/');
+
+    await expect(page).toHaveScreenshot('books-index-mobile.png', {
+      fullPage: true,
+      animations: 'disabled',
+    });
+  });
+
+  for (const book of books) {
+    test(`Book detail visual regression: ${book.slug}`, async ({ page }) => {
+      await waitForFontsAndContent(page, `/books/${book.slug}/`);
+
+      await expect(page).toHaveScreenshot(`book-detail-${book.slug}.png`, {
+        fullPage: true,
+        animations: 'disabled',
+      });
+    });
+  }
 });
