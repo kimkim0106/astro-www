@@ -6,6 +6,7 @@ import markets from "../../data/book-markets.json";
 
 const title = "Books | kimkim0106's HP";
 const description = "kimkim0106's self-published books information. And market schedules.";
+const coverBook = books[0];
 const currentYear = new Date().getFullYear();
 ---
 
@@ -15,7 +16,12 @@ const currentYear = new Date().getFullYear();
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>{title}</title>
-    <PageMeta title={title} description={description} image={`/images/books/${books[0].slug}.png`} />
+    <PageMeta
+      title={title}
+      description={description}
+      image={coverBook ? `/images/books/${coverBook.slug}.png` : undefined}
+      imageAlt={coverBook?.name}
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -24,7 +24,13 @@ const ebookEditions = book.editions.filter((item) => item.type === "ebook");
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>{title}</title>
-    <PageMeta title={title} description={description} image={`/images/books/${book.slug}.png`} type="article" />
+    <PageMeta
+      title={title}
+      description={description}
+      image={`/images/books/${book.slug}.png`}
+      imageAlt={book.name}
+      type="article"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

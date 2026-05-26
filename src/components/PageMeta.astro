@@ -3,6 +3,7 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  imageAlt?: string;
   type?: "website" | "article";
 }
 
@@ -10,11 +11,12 @@ const {
   title,
   description,
   image,
+  imageAlt = title,
   type = "website",
 } = Astro.props;
 
 const siteName = "kimkim0106's HP";
-const baseUrl = Astro.site ?? Astro.url;
+const baseUrl = Astro.site ?? new URL("/", Astro.url);
 const canonicalUrl = new URL(Astro.url.pathname, baseUrl).toString();
 const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 ---
@@ -28,6 +30,7 @@ const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
 {imageUrl ? <meta property="og:image" content={imageUrl} /> : null}
+{imageUrl ? <meta property="og:image:alt" content={imageAlt} /> : null}
 
 <meta name="twitter:card" content={imageUrl ? "summary_large_image" : "summary"} />
 <meta name="twitter:title" content={title} />
