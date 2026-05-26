@@ -1,11 +1,28 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const defaultCiWorkers = 4;
+
+function getWorkers(): number | string | undefined {
+  const value = process.env.PLAYWRIGHT_WORKERS?.trim();
+
+  if (!value) {
+    return process.env.CI ? defaultCiWorkers : undefined;
+  }
+
+  if (/^\d+%$/.test(value)) {
+    return value;
+  }
+
+  const workers = Number(value);
+  return Number.isInteger(workers) && workers > 0 ? workers : defaultCiWorkers;
+}
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: getWorkers(),
   reporter: 'html',
   timeout: 60000,
   use: {
