@@ -4,7 +4,6 @@ interface Props {
   description: string;
   image?: string;
   imageAlt?: string;
-  type?: "website" | "article";
 }
 
 const {
@@ -12,7 +11,6 @@ const {
   description,
   image,
   imageAlt = title,
-  type = "website",
 } = Astro.props;
 
 const siteName = "kimkim0106's HP";
@@ -25,7 +23,8 @@ const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 <link rel="canonical" href={canonicalUrl} />
 
 <meta property="og:site_name" content={siteName} />
-<meta property="og:type" content={type} />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
@@ -36,3 +35,4 @@ const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 {imageUrl ? <meta name="twitter:image" content={imageUrl} /> : null}
+{imageUrl ? <meta name="twitter:image:alt" content={imageAlt} /> : null}
