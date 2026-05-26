@@ -32,7 +32,7 @@ jobs:
     - name: Update snapshots
       run: npm run update-snapshots
       env:
-        PLAYWRIGHT_WORKERS: 4
+        PLAYWRIGHT_WORKERS: ${{ vars.PLAYWRIGHT_WORKERS || '4' }}
     - name: Check for changes
       id: verify-changed-files
       run: |

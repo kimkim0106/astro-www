@@ -23,7 +23,7 @@ jobs:
     - name: Run Playwright tests
       run: npm run test
       env:
-        PLAYWRIGHT_WORKERS: 4
+        PLAYWRIGHT_WORKERS: ${{ vars.PLAYWRIGHT_WORKERS || '4' }}
     - uses: actions/upload-artifact@v4
       if: failure()
       with:
