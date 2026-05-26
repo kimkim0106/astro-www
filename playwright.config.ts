@@ -1,11 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const workers = process.env.PLAYWRIGHT_WORKERS
+  ? Number(process.env.PLAYWRIGHT_WORKERS)
+  : process.env.CI
+    ? 4
+    : undefined;
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers,
   reporter: 'html',
   timeout: 60000,
   use: {
