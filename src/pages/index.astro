@@ -1,11 +1,14 @@
 ---
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import PageMeta from "../components/PageMeta.astro";
 import profiles from "../data/profiles.json";
 import links from "../data/links.json";
 import articles from "../data/articles.json";
 import books from "../data/books.json";
 import decks from "../data/slides.json";
 
+const title = "kimkim0106's HP";
+const description = "kimkim0106のプロフィール、リンク、ブログ、同人誌、登壇資料をまとめた個人サイトです。";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -14,7 +17,8 @@ const currentYear = new Date().getFullYear();
     <GoogleAnalytics />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>kimkim0106's HP</title>
+    <title>{title}</title>
+    <PageMeta title={title} description={description} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
