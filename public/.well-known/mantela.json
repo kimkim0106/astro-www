@@ -21,7 +21,9 @@
         "YQ1DNJB1",
         "3X6JQVUC",
         "VKH15SFG",
-        "M03RQ05J"
+        "5DYYWOSP",
+        "M03RQ05J",
+        "PD3FTJ3I"
       ],
       "type": "main"
     },
@@ -35,7 +37,7 @@
       "extension": "6002",
       "identifier": "3X6JQVUC",
       "name": "MacBook Air",
-      "type": "phone"
+      "type": "other"
     },
     {
       "extension": "6003",
@@ -44,11 +46,49 @@
       "type": "cellphone"
     },
     {
+      "extension": "6004",
+      "identifier": "5DYYWOSP",
+      "name": "Nothing Phone (4a)",
+      "type": "smartphone"
+    },
+    {
       "extension": "6005",
       "identifier": "M03RQ05J",
-      "model": "600-A2 -> YAMAHA RT58i",
+      "model": "600-A2 -> YAMAHA RT58i TEL1",
       "name": "600-A2",
       "type": "dialphone",
+      "unavailable": false
+    },
+    {
+      "extension": "6006",
+      "identifier": "PD3FTJ3I",
+      "model": "600-P -> YAMAHA RT58i TEL2",
+      "name": "600-P",
+      "type": "pushphone",
+      "unavailable": false
+    },
+    {
+      "extension": "6009",
+      "identifier": "S16ZGAE7",
+      "model": "",
+      "name": "Zenfone 2",
+      "type": "smartphone",
+      "unavailable": false
+    },
+    {
+      "extension": "6100",
+      "identifier": "UTC6RFTO",
+      "model": "",
+      "name": "Aspire UX 1",
+      "type": "phone",
+      "unavailable": false
+    },
+    {
+      "extension": "6101",
+      "identifier": "KAV15A8I",
+      "model": "",
+      "name": "Aspire UX 2",
+      "type": "phone",
       "unavailable": false
     },
     {
@@ -88,7 +128,8 @@
       "identifier": "3c558c08-66da-4d79-ba14-db84d9407cf3",
       "mantela": "https://kimkim0106.net/.well-known/sub-mantela.json",
       "name": "kimkim0106 sub",
-      "prefix": "61"
+      "prefix": "61",
+      "unavailable": true
     },
     {
       "identifier": "5752ca4c-c828-4946-a8f3-7f8272206f2d",
@@ -113,6 +154,18 @@
       "mantela": "https://www.scrwnl.eu.org/.well-known/mantela.json",
       "name": "SCRWNLNET",
       "prefix": "782"
+    },
+    {
+      "identifier": "8fa08edd-26e4-4762-99b1-109607e0fc22",
+      "mantela": "https://nemnet-lab-pbx.github.io/mantela/mantela.json",
+      "name": "みゅーと東京局",
+      "prefix": "237"
+    },
+    {
+      "identifier": "402b0d3f-d499-4bf7-8ef0-bd25c1edd69a",
+      "mantela": "https://allianaab2m.github.io/mantela/mantela.json",
+      "name": "ab2m-ありあな局",
+      "prefix": "462"
     }
   ],
   "version": "0.1.0"
