@@ -1,39 +1,34 @@
 {
-  "$schema": "https://tkytel.github.io/mantela/0.1/mantela.schema.json",
-  "version": "0.1.0",
+  "$schema": "https://tkytel.github.io/mantela/0.1.x/mantela.schema.json",
   "aboutMe": {
+    "identifier": "3c558c08-66da-4d79-ba14-db84d9407cf3",
     "name": "kimkim0106 sub",
     "preferredPrefix": [
       "61"
     ],
-    "identifier": "3c558c08-66da-4d79-ba14-db84d9407cf3"
+    "unavailable": true
   },
   "extensions": [
     {
-      "name": "OPPO Reno A",
-      "extension": "1000",
-      "identifier": "SIRTDZ5P",
-      "type": "smartphone"
-    },
-    {
-      "name": "Test Call",
       "extension": "1903",
       "identifier": "49ABJ1JQ",
+      "name": "Test Call",
       "type": "music"
     },
     {
-      "name": "1000Hz Tone",
       "extension": "9876",
-      "type": "music",
-      "identifier": "QD1J97I1"
+      "identifier": "QD1J97I1",
+      "name": "1000Hz Tone",
+      "type": "music"
     }
   ],
   "providers": [
     {
-      "name": "kimkim0106",
-      "prefix": "60",
       "identifier": "8b741e2b-45f9-4187-9da1-05d866b79a09",
-      "mantela": "https://kimkim0106.net/.well-known/mantela.json"
+      "mantela": "https://kimkim0106.net/.well-known/mantela.json",
+      "name": "kimkim0106",
+      "prefix": "60"
     }
-  ]
+  ],
+  "version": "0.1.0"
 }
