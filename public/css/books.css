@@ -70,6 +70,7 @@ ul.book-catalog > li > a > p {
 	white-space: pre-line;
 }
 
+ul.book-info,
 ul.book-links {
 	padding-left: 1.2em;
 }

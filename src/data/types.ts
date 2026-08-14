@@ -44,6 +44,8 @@ export interface Book {
   slug: string;
   description: string;
   published: string;
+  size: string;
+  pages: number;
   editions: BookEdition[];
 }
 
