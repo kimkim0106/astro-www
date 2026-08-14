@@ -59,6 +59,13 @@ const ebookEditions = book.editions.filter((item) => item.type === "ebook");
           <h2>Description</h2>
           <p class="book-description-text">{book.description}</p>
 
+          <h2>Info</h2>
+          <ul class="book-info">
+            <li>Published: {book.published}</li>
+            <li>Size: {book.size}</li>
+            <li>Pages: {book.pages}</li>
+          </ul>
+
           {
             printEditions.length > 0 ? (
               <>

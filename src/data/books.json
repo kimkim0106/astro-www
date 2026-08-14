@@ -5,6 +5,8 @@
     "slug": "gb_printer_dev",
     "description": "実はポケットプリンタ開発を使った自作ソフトは簡単に作れるんです！\nこの本では、GBDK 2020 と printlib2 を使ったポケットプリンタ開発方法と活用例を紹介します。",
     "published": "2026-05-10",
+    "size": "A5",
+    "pages": 20,
     "editions": [
       {
         "type": "ebook",
@@ -17,6 +19,11 @@
         "name": "技書博13",
         "url": "https://gishohaku.dev/gishohaku13/books/ewfih0uiyRh0h288ogPQ",
         "published": "2026-05-10"
+      },
+      {
+        "type": "print",
+        "name": "NDL",
+        "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034856700"
       }
     ]
   },
@@ -26,6 +33,8 @@
     "slug": "lets_start_gb_dev_lite",
     "description": "令和の時代にゲームボーイ！？\n実はまだまだゲームボーイはアツいんです！\nゲームボーイのソフト開発にあなたもチャレンジしてみませんか？\n\n廉価版として内容を厳選しました！",
     "published": "2025-12-31",
+    "size": "A5",
+    "pages": 12,
     "editions": [
       {
         "type": "print",
@@ -45,6 +54,8 @@
     "slug": "lets_start_gb_dev",
     "description": "令和の時代にゲームボーイ！？\n実はまだまだゲームボーイはアツいんです！\nゲームボーイのソフト開発にあなたもチャレンジしてみませんか？",
     "published": "2025-10-26",
+    "size": "A5",
+    "pages": 24,
     "editions": [
       {
         "type": "ebook",
