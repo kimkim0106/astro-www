@@ -5,6 +5,14 @@ on:
     branches: [ main ]
   pull_request:
 
+# fork からの PR でも実行されるため、GITHUB_TOKEN は読み取り専用に固定する
+permissions:
+  contents: read
+
+concurrency:
+  group: visual-regression-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     timeout-minutes: 60
