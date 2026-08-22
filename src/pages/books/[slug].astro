@@ -14,6 +14,7 @@ const { book } = Astro.props;
 const title = `${book.name} | kimkim0106's HP`;
 const description = book.description.replace(/\s+/g, " ").trim();
 const currentYear = new Date().getFullYear();
+const titleLines = book.display_name ?? [book.name];
 const printEditions = book.editions.filter((item) => item.type === "print");
 const ebookEditions = book.editions.filter((item) => item.type === "ebook");
 ---
@@ -48,7 +49,8 @@ const ebookEditions = book.editions.filter((item) => item.type === "ebook");
     <article>
       <p class="back-link"><a href="/books/">← Back to Books</a></p>
 
-      <h1>{book.name}</h1>
+      <!-- aria-label がないと inline-block の境界に空白が入った読み上げになるため明示する -->
+      <h1 class="book-title" aria-label={book.name}>{titleLines.map((line) => <span class="book-title-line">{line}</span>)}</h1>
 
       <div class="book-detail">
         <section class="book-thumbnail">

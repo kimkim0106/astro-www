@@ -50,6 +50,11 @@ ul.book-catalog > li > a > p {
 	line-height: 1.3;
 }
 
+/* 1行に収まらないときだけ display_name の区切り位置で改行する */
+h1.book-title > .book-title-line {
+	display: inline-block;
+}
+
 .book-detail {
 	display: grid;
 	grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
