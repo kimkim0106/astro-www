@@ -48,30 +48,24 @@ a {
 ul > li {
 	padding-bottom: 10px;
 }
-dl.profile {
+dl.profile,
+dl.links {
 	display: grid;
 	grid-template-columns: 160px 1fr;
 	gap: 10px;
 }
-dl.profile > dt {
+dl.profile > dt,
+dl.links > dt {
 	text-align: right;
 }
-/* 区切りのコロンは Links セクションと揃えるための装飾なので、マークアップではなく CSS で付ける */
-dl.profile > dt::after {
+/* 区切りのコロンは装飾なので、マークアップではなく CSS で付ける */
+dl.profile > dt::after,
+dl.links > dt::after {
 	content: ":";
 }
-dl.profile > dd {
+dl.profile > dd,
+dl.links > dd {
 	margin-left: 0;
-}
-ul.links {
-	list-style-type: none;
-	padding-left: 0;
-}
-ul.links > li > span.name {
-	text-align: right;
-	display: inline-block;
-	width: 170px;
-	padding-right: 10px;
 }
 span.contents {
 	padding-left: 20px;
