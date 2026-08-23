@@ -30,6 +30,13 @@ test.describe('Markdown version of the homepage', () => {
     }
   });
 
+  test('the HTML version advertises the Markdown version', async ({ page }) => {
+    await page.goto('/');
+
+    const alternate = page.locator('link[rel="alternate"][type="text/markdown"]');
+    await expect(alternate).toHaveAttribute('href', 'https://kimkim0106.net/index.md');
+  });
+
   test('/index.md links to the site with absolute URLs', async ({ request }) => {
     const body = await (await request.get('/index.md')).text();
 
