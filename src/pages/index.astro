@@ -1,6 +1,7 @@
 ---
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import PageMeta from "../components/PageMeta.astro";
+import PersonJsonLd from "../components/PersonJsonLd.astro";
 import profiles from "../data/profiles.json";
 import links from "../data/links.json";
 import articles from "../data/articles.json";
@@ -19,6 +20,7 @@ const currentYear = new Date().getFullYear();
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>{title}</title>
     <PageMeta title={title} description={description} />
+    <PersonJsonLd />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,21 +37,22 @@ const currentYear = new Date().getFullYear();
     <article>
       <h1>It works🔥</h1>
       <h2 id="profile">About me</h2>
-      <ul class="profile">
+      <dl class="profile">
         {
           profiles.map((profile) => (
-            <li>
-              <span class="name">{profile.key}:</span> {profile.value}
-            </li>
+            <>
+              <dt>{profile.key}</dt>
+              <dd>{profile.value}</dd>
+            </>
           ))
         }
-      </ul>
+      </dl>
       <h2 id="links">Links</h2>
       <ul class="links">
         {
           links.map((link) => (
             <li>
-              <span class="name">{link.name}:</span><a href={link.url}>{link.account_name}</a>
+              <span class="name">{link.name}:</span><a href={link.url} rel="me">{link.account_name}</a>
             </li>
           ))
         }

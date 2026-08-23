@@ -86,7 +86,7 @@ test.describe('Visual Regression Tests', () => {
     await waitForFontsAndContent(page);
     
     // プロフィールセクションのスクリーンショット
-    const profileSection = page.locator('#profile + ul.profile');
+    const profileSection = page.locator('#profile + dl.profile');
     await expect(profileSection).toHaveScreenshot('profile-section.png', {
       animations: 'disabled',
     });
