@@ -48,15 +48,20 @@ a {
 ul > li {
 	padding-bottom: 10px;
 }
-ul.profile {
-	list-style-type: none;
-	padding-left: 0;
+dl.profile {
+	display: grid;
+	grid-template-columns: 160px 1fr;
+	gap: 10px;
 }
-ul.profile > li > span.name {
+dl.profile > dt {
 	text-align: right;
-	display: inline-block;
-	width: 170px;
-	padding-right: 10px;
+}
+/* 区切りのコロンは Links セクションと揃えるための装飾なので、マークアップではなく CSS で付ける */
+dl.profile > dt::after {
+	content: ":";
+}
+dl.profile > dd {
+	margin-left: 0;
 }
 ul.links {
 	list-style-type: none;

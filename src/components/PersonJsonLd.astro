@@ -1,0 +1,30 @@
+---
+import profiles from "../data/profiles.json";
+import links from "../data/links.json";
+
+const baseUrl = Astro.site ?? new URL("/", Astro.url);
+
+/**
+ * profiles.json は key/value の汎用構造なので、key を引いて schema.org のプロパティに対応付ける。
+ * Birthday は年を持たないため ISO 8601 の birthDate として表現できず、
+ * Location は自由記述で国コードに落とせないので、どちらも出力していない。
+ */
+function profileValue(key: string): string | undefined {
+  return profiles.find((profile) => profile.key === key)?.value;
+}
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profileValue("Name"),
+  jobTitle: profileValue("Job"),
+  url: baseUrl.toString(),
+  // Links セクションと同じ一覧。検索エンジンが同一人物のアカウントとして紐付ける
+  sameAs: links.map((link) => link.url),
+};
+
+// </script> でスクリプト要素が閉じられないよう < をエスケープする
+const json = JSON.stringify(person).replace(/</g, "\\u003c");
+---
+
+<script type="application/ld+json" set:html={json} is:inline />
