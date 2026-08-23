@@ -26,6 +26,18 @@ This is an Astro-based personal website that serves as a portfolio/homepage. The
 - **Single Page Application**: All content is rendered on `/src/pages/index.astro`
 - **Data-Driven Content**: JSON files in `/src/data/` contain dynamic content
 - **Automated Blog Integration**: RSS feed from Hatena Blog auto-updates recent articles
+- **Markdown Version**: `/index.md` mirrors the top page as plain Markdown for text browsers, terminals and machine readers
+
+### Markdown Version of the Top Page
+`/src/pages/index.md.ts` is a static file endpoint that emits `dist/index.md` at build time.
+The document itself is built by `buildIndexMarkdown()` in `/src/lib/index-markdown.ts`, which
+reads the same JSON files as `index.astro`.
+
+- It is generated at build time rather than committed, so it never goes stale when the
+  `update-articles` / `update-slides` workflows rewrite `/src/data/`
+- Internal links are expanded to absolute URLs via `Astro.site`, so the document stays
+  usable when read outside the site
+- Section headings and the number of feed entries must stay in sync with `index.astro`
 
 ### Data Sources
 - `/src/data/profiles.json` - Personal profile information
