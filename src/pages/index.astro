@@ -48,15 +48,16 @@ const currentYear = new Date().getFullYear();
         }
       </dl>
       <h2 id="links">Links</h2>
-      <ul class="links">
+      <dl class="links">
         {
           links.map((link) => (
-            <li>
-              <span class="name">{link.name}:</span><a href={link.url} rel="me">{link.account_name}</a>
-            </li>
+            <>
+              <dt>{link.name}</dt>
+              <dd><a href={link.url} rel="me">{link.account_name}</a></dd>
+            </>
           ))
         }
-      </ul>
+      </dl>
 
       <h2 id="blog">Blog</h2>
       <ul>
