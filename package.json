@@ -27,7 +27,7 @@
   "devDependencies": {
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.2.0",
-    "fast-xml-parser": "^5.11.0",
+    "fast-xml-parser": "^5.11.1",
     "temporal-polyfill": "^1.0.4",
     "tsx": "^4.23.12"
   }
