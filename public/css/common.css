@@ -55,6 +55,8 @@ dl.links {
 	gap: 10px;
 	/* 値が折り返したとき、1行のままの見出しを縦中央に置く */
 	align-items: center;
+	/* ul の既定インデント (padding-left: 40px) と左端を揃える */
+	padding-left: 40px;
 }
 dl.profile > dt,
 dl.links > dt {
