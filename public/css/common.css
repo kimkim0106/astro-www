@@ -50,7 +50,7 @@ ul > li {
 }
 dl.profile {
 	display: grid;
-	grid-template-columns: 160px 1fr;
+	grid-template-columns: max-content 1fr;
 	gap: 10px;
 }
 dl.profile > dt {
@@ -66,12 +66,15 @@ dl.profile > dd {
 ul.links {
 	list-style-type: none;
 	padding-left: 0;
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 10px;
+}
+ul.links > li {
+	display: contents;
 }
 ul.links > li > span.name {
 	text-align: right;
-	display: inline-block;
-	width: 170px;
-	padding-right: 10px;
 }
 span.contents {
 	padding-left: 20px;
