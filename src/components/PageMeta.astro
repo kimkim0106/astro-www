@@ -4,6 +4,8 @@ interface Props {
   description: string;
   image?: string;
   imageAlt?: string;
+  /** このページの Markdown 版のパス。指定すると rel="alternate" で告知する */
+  markdown?: string;
 }
 
 const {
@@ -11,16 +13,19 @@ const {
   description,
   image,
   imageAlt = title,
+  markdown,
 } = Astro.props;
 
 const siteName = "kimkim0106's HP";
 const baseUrl = Astro.site ?? new URL("/", Astro.url);
 const canonicalUrl = new URL(Astro.url.pathname, baseUrl).toString();
 const imageUrl = image ? new URL(image, baseUrl).toString() : undefined;
+const markdownUrl = markdown ? new URL(markdown, baseUrl).toString() : undefined;
 ---
 
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
+{markdownUrl ? <link rel="alternate" type="text/markdown" href={markdownUrl} title="Markdown" /> : null}
 
 <meta property="og:site_name" content={siteName} />
 <meta property="og:locale" content="ja_JP" />

@@ -38,6 +38,8 @@ reads the same JSON files as `index.astro`.
 - Internal links are expanded to absolute URLs via `Astro.site`, so the document stays
   usable when read outside the site
 - Section headings and the number of feed entries must stay in sync with `index.astro`
+- The HTML version advertises it with `<link rel="alternate" type="text/markdown">`, emitted by
+  `PageMeta.astro` when the `markdown` prop is set
 
 ### Data Sources
 - `/src/data/profiles.json` - Personal profile information
