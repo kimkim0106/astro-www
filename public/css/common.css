@@ -51,12 +51,12 @@ ul > li {
 dl.profile,
 dl.links {
 	display: grid;
-	/* box-sizing は content-box のため、旧 span.name の width: 170px はテキスト領域の幅だった。
-	   フォント環境によって 170px に収まらない見出しがあっても折り返さないよう、下限としてのみ使う */
-	grid-template-columns: minmax(170px, max-content) minmax(0, 1fr);
+	grid-template-columns: max-content minmax(0, 1fr);
 	gap: 10px;
 	/* 値が折り返したとき、1行のままの見出しを縦中央に置く */
 	align-items: center;
+	/* span.contents の padding-left: 20px と左端を揃える */
+	padding-left: 20px;
 }
 dl.profile > dt,
 dl.links > dt {
