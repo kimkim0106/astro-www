@@ -3,11 +3,13 @@
  */
 
 /**
- * Profile information displayed in the "About me" section
+ * Profile information displayed in the "About me" section.
+ * `value` is an array when one key has several values (e.g. multiple jobs);
+ * each entry is rendered as its own line under the same key.
  */
 export interface Profile {
   key: string;
-  value: string;
+  value: string | string[];
 }
 
 /**
