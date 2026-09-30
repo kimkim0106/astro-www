@@ -165,6 +165,12 @@
       "mantela": "https://allianaab2m.github.io/mantela/mantela.json",
       "name": "ab2m-ありあな局",
       "prefix": "462"
+    },
+    {
+      "identifier": "dc727e60-251e-4b97-af2c-927df9042dcd",
+      "mantela": "https://yanchon918s.github.io/mantela/mantela.json",
+      "name": "やんちょん局",
+      "prefix": "918"
     }
   ],
   "version": "0.1.0"
