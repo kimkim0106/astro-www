@@ -58,17 +58,40 @@ dl.links {
 	/* span.contents の padding-left: 20px と左端を揃える */
 	padding-left: 20px;
 }
-dl.profile > dt,
+/*
+ * dl.profile は dt/dd を div でグループ化している。
+ * 1 つの dt に複数の dd が続くと grid の自動配置では列がずれるため、
+ * グループごとに subgrid を切って dt を 1 列目、dd を 2 列目に固定する。
+ */
+dl.profile > div {
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-column: 1 / -1;
+	/* 同じ dt に属する dd 同士は、項目間 (10px) より詰めてひとまとまりに見せる */
+	row-gap: 5px;
+	align-items: center;
+}
+dl.profile > div > dt {
+	grid-column: 1;
+}
+dl.profile > div > dd {
+	grid-column: 2;
+}
+/* 複数の値は 1 行ずつ並ぶので、続きがあることを示すコンマを CSS で付ける */
+dl.profile > div > dd:not(:last-child)::after {
+	content: ",";
+}
+dl.profile dt,
 dl.links > dt {
 	text-align: right;
 	white-space: nowrap;
 }
 /* 区切りのコロンは装飾なので、マークアップではなく CSS で付ける */
-dl.profile > dt::after,
+dl.profile dt::after,
 dl.links > dt::after {
 	content: ":";
 }
-dl.profile > dd,
+dl.profile dd,
 dl.links > dd {
 	margin-left: 0;
 	/* @kimkim0106@misskey.io のような区切りのない文字列も折り返させる */

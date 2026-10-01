@@ -13,6 +13,9 @@
   },
   {
     "key": "Job",
-    "value": "Engineer"
+    "value": [
+      "Product Manager (Mobile game)",
+      "Engineer"
+    ]
   }
 ]

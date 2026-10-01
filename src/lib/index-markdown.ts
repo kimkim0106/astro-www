@@ -34,6 +34,18 @@ function link(text: string, url: string): string {
 }
 
 /**
+ * A profile entry with several values becomes a nested list, mirroring the
+ * one-`<dt>`-many-`<dd>` markup used by src/pages/index.astro.
+ */
+function formatProfile(profile: { key: string; value: string | string[] }): string {
+  const key = `- **${escapeText(profile.key)}**:`;
+  if (!Array.isArray(profile.value)) {
+    return `${key} ${escapeText(profile.value)}`;
+  }
+  return [key, ...profile.value.map((value) => `  - ${escapeText(value)}`)].join("\n");
+}
+
+/**
  * Render the top page as Markdown, mirroring the sections of
  * src/pages/index.astro. Served at /index.md for text browsers,
  * terminals and machine readers.
@@ -51,9 +63,7 @@ export function buildIndexMarkdown(site: URL): string {
     "kimkim0106's Website. My profile, blog, books, slides.",
 
     "## About me",
-    profiles
-      .map((profile) => `- **${escapeText(profile.key)}**: ${escapeText(profile.value)}`)
-      .join("\n"),
+    profiles.map(formatProfile).join("\n"),
 
     "## Links",
     links
