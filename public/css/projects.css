@@ -1,0 +1,21 @@
+.back-link {
+	margin-bottom: 0;
+}
+
+/* ロゴは白背景込みの SVG なので、ダークモードでは白いカードとして見える */
+.project-logo {
+	display: block;
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+	border: 1px solid var(--main-border-color);
+	border-radius: 8px;
+}
+
+.project-description {
+	white-space: pre-line;
+}
+
+ul.project-list {
+	padding-left: 1.2em;
+}

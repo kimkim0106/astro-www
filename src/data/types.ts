@@ -57,6 +57,24 @@ export interface BookMarket {
   location: string;
 }
 
+export interface ProjectRequirement {
+  name: string;
+  url?: string;
+}
+
+/**
+ * Personal project information
+ */
+export interface Project {
+  name: string;
+  slug: string;
+  summary: string;
+  description: string;
+  status: string;
+  features: string[];
+  requirements: ProjectRequirement[];
+}
+
 /**
  * Presentation slide metadata
  */
