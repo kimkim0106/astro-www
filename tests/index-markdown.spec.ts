@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import profiles from '../src/data/profiles.json' with { type: 'json' };
 import links from '../src/data/links.json' with { type: 'json' };
 import books from '../src/data/books.json' with { type: 'json' };
+import projects from '../src/data/projects.json' with { type: 'json' };
 
 test.describe('Markdown version of the homepage', () => {
   test('/index.md is served as Markdown', async ({ request }) => {
@@ -14,7 +15,7 @@ test.describe('Markdown version of the homepage', () => {
   test('/index.md has the same sections as the HTML version', async ({ request }) => {
     const body = await (await request.get('/index.md')).text();
 
-    for (const heading of ['About me', 'Links', 'Blog', 'Books', 'Slides']) {
+    for (const heading of ['About me', 'Links', 'Blog', 'Books', 'Projects', 'Slides']) {
       expect(body).toContain(`## ${heading}`);
     }
   });
@@ -49,6 +50,9 @@ test.describe('Markdown version of the homepage', () => {
     // サイト外で読まれても辿れるよう、内部リンクは絶対 URL で出力する
     for (const book of books) {
       expect(body).toContain(`https://kimkim0106.net/books/${book.slug}/`);
+    }
+    for (const project of projects.slice(0, 3)) {
+      expect(body).toContain(`https://kimkim0106.net/projects/${project.slug}/`);
     }
     expect(body).not.toMatch(/\]\(\/books\//);
   });

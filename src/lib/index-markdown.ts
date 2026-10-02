@@ -2,10 +2,11 @@ import profiles from "../data/profiles.json";
 import links from "../data/links.json";
 import articles from "../data/articles.json";
 import books from "../data/books.json";
+import projects from "../data/projects.json";
 import decks from "../data/slides.json";
 
 /**
- * Number of feed-driven entries shown on the top page.
+ * Number of feed-driven entries (and projects) shown on the top page.
  * Kept in sync with the `slice(0, 3)` calls in src/pages/index.astro.
  */
 const recentItemCount = 3;
@@ -60,7 +61,7 @@ export function buildIndexMarkdown(site: URL): string {
   const sections = [
     // Kept in sync with the `title` / `description` consts in src/pages/index.astro.
     "# kimkim0106's HP",
-    "kimkim0106's Website. My profile, blog, books, slides.",
+    "kimkim0106's Website. My profile, blog, books, projects, slides.",
 
     "## About me",
     profiles.map(formatProfile).join("\n"),
@@ -82,6 +83,17 @@ export function buildIndexMarkdown(site: URL): string {
       .map((book) => `- ${link(book.name, absolute(`/books/${book.slug}/`))} (${book.published})`)
       .join("\n"),
     `Book details are available on ${link("Books", absolute("/books/"))}.`,
+
+    "## Projects",
+    projects
+      .slice(0, recentItemCount)
+      .map((project) => `- ${link(project.name, absolute(`/projects/${project.slug}/`))}: ${escapeText(project.summary)}`)
+      .join("\n"),
+    // The link to the full list appears once there are enough projects to need it,
+    // mirroring the condition in src/pages/index.astro.
+    ...(projects.length >= recentItemCount
+      ? [`More projects are available on ${link("Projects", absolute("/projects/"))}.`]
+      : []),
 
     "## Slides",
     decks
