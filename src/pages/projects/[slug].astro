@@ -52,6 +52,29 @@ const currentYear = new Date().getFullYear();
       <h2>Description</h2>
       <p class="project-description">{project.description}</p>
 
+      <h2>Videos</h2>
+      <div class="project-videos">
+        {
+          project.videos.map((video) => (
+            <figure>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${video.youtube_id}`}
+                title={video.title}
+                width="560"
+                height="315"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+              <figcaption>
+                <a href={`https://www.youtube.com/watch?v=${video.youtube_id}`}>{video.title}</a>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+
       <h2>Screenshots</h2>
       <div class="project-screenshots">
         {

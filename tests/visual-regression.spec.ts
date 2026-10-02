@@ -140,6 +140,8 @@ test.describe('Visual Regression Tests', () => {
       await expect(page).toHaveScreenshot(`project-detail-${project.slug}.png`, {
         fullPage: true,
         animations: 'disabled',
+        // YouTube の埋め込みは外部の読み込み状況で見た目が変わるため比較しない
+        mask: [page.locator('.project-videos iframe')],
       });
     });
   }

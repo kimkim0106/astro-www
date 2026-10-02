@@ -20,6 +20,24 @@ ul.project-list {
 	padding-left: 1.2em;
 }
 
+.project-videos figure {
+	margin: 0 0 16px;
+	width: 560px;
+	max-width: 100%;
+}
+
+.project-videos iframe {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	border: 0;
+}
+
+.project-videos figcaption {
+	font-size: 0.9em;
+}
+
 /* GB の画面 (160x144) を 4 倍に拡大した PNG。2 倍の大きさで並べ、ドットをぼかさない */
 .project-screenshots {
 	display: flex;

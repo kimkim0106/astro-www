@@ -57,6 +57,11 @@ export interface BookMarket {
   location: string;
 }
 
+export interface ProjectVideo {
+  youtube_id: string;
+  title: string;
+}
+
 export interface ProjectScreenshot {
   src: string;
   caption: string;
@@ -76,6 +81,7 @@ export interface Project {
   summary: string;
   description: string;
   status: string;
+  videos: ProjectVideo[];
   screenshots: ProjectScreenshot[];
   features: string[];
   requirements: ProjectRequirement[];

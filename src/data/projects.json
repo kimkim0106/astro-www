@@ -5,6 +5,12 @@
     "summary": "ゲームボーイカラー用端末エミュレータ",
     "description": "ゲームボーイカラー用の端末エミュレータです。\n外部通信ポート・赤外線通信ポートでソフトウェア UART 通信を行い、受信した文字を表示します。\nゲームボーイにはキーボードがないため、ソフトウェアキーボードを実装しています。\nまた、RS-232C レベル変換 IC を挟むことで PC やモデムとも通信が可能です。",
     "status": "開発中",
+    "videos": [
+      {
+        "youtube_id": "UtnzxH3t8Lo",
+        "title": "GB Term でモデム通信"
+      }
+    ],
     "screenshots": [
       {
         "src": "/images/projects/gb-term/hello.png",
