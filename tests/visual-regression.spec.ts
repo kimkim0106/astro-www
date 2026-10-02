@@ -1,5 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import books from '../src/data/books.json' with { type: 'json' };
+import projects from '../src/data/projects.json' with { type: 'json' };
 
 // フォント読み込み待機用のヘルパー関数
 async function waitForFontsAndContent(page: Page, path = '/') {
@@ -119,6 +120,28 @@ test.describe('Visual Regression Tests', () => {
       await expect(page).toHaveScreenshot(`book-detail-${book.slug}.png`, {
         fullPage: true,
         animations: 'disabled',
+      });
+    });
+  }
+
+  test('Projects index visual regression', async ({ page }) => {
+    await waitForFontsAndContent(page, '/projects/');
+
+    await expect(page).toHaveScreenshot('projects-index-full.png', {
+      fullPage: true,
+      animations: 'disabled',
+    });
+  });
+
+  for (const project of projects) {
+    test(`Project detail visual regression: ${project.slug}`, async ({ page }) => {
+      await waitForFontsAndContent(page, `/projects/${project.slug}/`);
+
+      await expect(page).toHaveScreenshot(`project-detail-${project.slug}.png`, {
+        fullPage: true,
+        animations: 'disabled',
+        // YouTube の埋め込みは外部の読み込み状況で見た目が変わるため比較しない
+        mask: [page.locator('.project-videos iframe')],
       });
     });
   }

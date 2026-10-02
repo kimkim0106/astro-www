@@ -59,6 +59,35 @@ export interface BookMarket {
   location: string;
 }
 
+export interface ProjectVideo {
+  youtube_id: string;
+  title: string;
+}
+
+export interface ProjectScreenshot {
+  src: string;
+  caption: string;
+}
+
+export interface ProjectRequirement {
+  name: string;
+  url?: string;
+}
+
+/**
+ * Personal project information
+ */
+export interface Project {
+  name: string;
+  slug: string;
+  summary: string;
+  description: string;
+  videos: ProjectVideo[];
+  screenshots: ProjectScreenshot[];
+  features: string[];
+  requirements: ProjectRequirement[];
+}
+
 /**
  * Presentation slide metadata
  */

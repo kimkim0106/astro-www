@@ -1,0 +1,46 @@
+[
+  {
+    "name": "GB Term",
+    "slug": "gb-term",
+    "summary": "ゲームボーイカラー用端末エミュレータ",
+    "description": "ゲームボーイカラー用の端末エミュレータです。\n外部通信ポート・赤外線通信ポートでソフトウェア UART 通信を行い、受信した文字を表示します。\nゲームボーイにはキーボードがないため、ソフトウェアキーボードを実装しています。\nまた、RS-232C レベル変換 IC を挟むことで PC やモデムとも通信が可能です。",
+    "videos": [
+      {
+        "youtube_id": "UtnzxH3t8Lo",
+        "title": "GB Term でモデム通信"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/images/projects/gb-term/hello.png",
+        "caption": "ソフトウェアキーボードで入力行に文字を打ち込んだところ"
+      },
+      {
+        "src": "/images/projects/gb-term/uname.png",
+        "caption": "Linux へシリアルコンソールでログインしコマンドを実行"
+      },
+      {
+        "src": "/images/projects/gb-term/vim.png",
+        "caption": "VT100 モードでの Vim 表示"
+      },
+      {
+        "src": "/images/projects/gb-term/menu.png",
+        "caption": "設定メニュー"
+      }
+    ],
+    "features": [
+      "外部通信ポートでのソフトウェア UART (2,400〜19,200 bps)",
+      "赤外線通信ポートを用いたソフトウェア UART (9,600 bps 〜 19,200 bps)",
+      "シンプルな端末モードと VT100 互換モードを切り替え可能",
+      "ソフトウェアフロー制御 (XON/XOFF)"
+    ],
+    "requirements": [
+      { "name": "ゲームボーイカラー" },
+      { "name": "Flash カートリッジ (32 KB 以上)" },
+      {
+        "name": "3V・3.3V・5V系-RS232レベル変換基板 (秋月電子通商)",
+        "url": "https://akizukidenshi.com/catalog/g/g106464/"
+      }
+    ]
+  }
+]
