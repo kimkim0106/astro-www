@@ -61,7 +61,7 @@ export function buildIndexMarkdown(site: URL): string {
   const sections = [
     // Kept in sync with the `title` / `description` consts in src/pages/index.astro.
     "# kimkim0106's HP",
-    "kimkim0106's Website. My profile, blog, books, projects, slides.",
+    "kimkim0106's Website. My profile, blog, books, slides, projects.",
 
     "## About me",
     profiles.map(formatProfile).join("\n"),
@@ -84,6 +84,16 @@ export function buildIndexMarkdown(site: URL): string {
       .join("\n"),
     `Book details are available on ${link("Books", absolute("/books/"))}.`,
 
+    "## Slides",
+    decks
+      .slice(0, recentItemCount)
+      .map((deck) => {
+        const event = deck.event ? ` @${escapeText(deck.event)}` : "";
+        return `- ${link(deck.title, deck.url)} (${deck.published}${event})`;
+      })
+      .join("\n"),
+    `More slides are available on ${link("Speaker Deck", "https://speakerdeck.com/kimkim0106")}.`,
+
     "## Projects",
     projects
       .slice(0, recentItemCount)
@@ -94,16 +104,6 @@ export function buildIndexMarkdown(site: URL): string {
     ...(projects.length >= recentItemCount
       ? [`More projects are available on ${link("Projects", absolute("/projects/"))}.`]
       : []),
-
-    "## Slides",
-    decks
-      .slice(0, recentItemCount)
-      .map((deck) => {
-        const event = deck.event ? ` @${escapeText(deck.event)}` : "";
-        return `- ${link(deck.title, deck.url)} (${deck.published}${event})`;
-      })
-      .join("\n"),
-    `More slides are available on ${link("Speaker Deck", "https://speakerdeck.com/kimkim0106")}.`,
 
     "---",
     `© 2011-${currentYear} kimkim0106`,

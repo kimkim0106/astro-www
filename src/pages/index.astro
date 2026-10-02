@@ -10,7 +10,7 @@ import projects from "../data/projects.json";
 import decks from "../data/slides.json";
 
 const title = "kimkim0106's HP";
-const description = "kimkim0106's Website. My profile, blog, books, projects, slides.";
+const description = "kimkim0106's Website. My profile, blog, books, slides, projects.";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -90,6 +90,20 @@ const currentYear = new Date().getFullYear();
         Book details are available on <a href="/books/">Books</a>.
       </span>
 
+      <h2 id="slides">Slides</h2>
+      <ul>
+        {
+          decks.slice(0, 3).map((deck) => (
+            <li>
+              <a href={deck.url}>{deck.title} ({deck.published}{deck.event ? ` @${deck.event}` : ''})</a>
+            </li>
+          ))
+        }
+      </ul>
+      <span class="contents">
+        More slides are available on <a href="https://speakerdeck.com/kimkim0106">Speaker Deck</a>.
+      </span>
+
       <h2 id="projects">Projects</h2>
       <ul>
         {
@@ -107,20 +121,6 @@ const currentYear = new Date().getFullYear();
           </span>
         )
       }
-
-      <h2 id="slides">Slides</h2>
-      <ul>
-        {
-          decks.slice(0, 3).map((deck) => (
-            <li>
-              <a href={deck.url}>{deck.title} ({deck.published}{deck.event ? ` @${deck.event}` : ''})</a>
-            </li>
-          ))
-        }
-      </ul>
-      <span class="contents">
-        More slides are available on <a href="https://speakerdeck.com/kimkim0106">Speaker Deck</a>.
-      </span>
       <!--見たな ( ◠‿◠ ) -->
     </article>
     <footer class="copyright">

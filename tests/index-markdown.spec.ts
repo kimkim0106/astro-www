@@ -15,7 +15,7 @@ test.describe('Markdown version of the homepage', () => {
   test('/index.md has the same sections as the HTML version', async ({ request }) => {
     const body = await (await request.get('/index.md')).text();
 
-    for (const heading of ['About me', 'Links', 'Blog', 'Books', 'Projects', 'Slides']) {
+    for (const heading of ['About me', 'Links', 'Blog', 'Books', 'Slides', 'Projects']) {
       expect(body).toContain(`## ${heading}`);
     }
   });
