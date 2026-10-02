@@ -23,7 +23,13 @@ test.describe('Markdown version of the homepage', () => {
     const body = await (await request.get('/index.md')).text();
 
     for (const profile of profiles) {
-      expect(body).toContain(`- **${profile.key}**: ${profile.value}`);
+      if (Array.isArray(profile.value)) {
+        // 複数値は入れ子のリストになる
+        const lines = [`- **${profile.key}**:`, ...profile.value.map((value) => `  - ${value}`)];
+        expect(body).toContain(lines.join('\n'));
+      } else {
+        expect(body).toContain(`- **${profile.key}**: ${profile.value}`);
+      }
     }
     for (const link of links) {
       expect(body).toContain(`](${link.url})`);

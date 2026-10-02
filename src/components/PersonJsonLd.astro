@@ -9,7 +9,7 @@ const baseUrl = Astro.site ?? new URL("/", Astro.url);
  * Birthday は年を持たないため ISO 8601 の birthDate として表現できず、
  * Location は自由記述で国コードに落とせないので、どちらも出力していない。
  */
-function profileValue(key: string): string | undefined {
+function profileValue(key: string): string | string[] | undefined {
   return profiles.find((profile) => profile.key === key)?.value;
 }
 
@@ -17,6 +17,7 @@ const person = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profileValue("Name"),
+  // 複数の肩書きがある場合は配列のまま出す。schema.org の jobTitle は Text の複数値を許容する
   jobTitle: profileValue("Job"),
   url: baseUrl.toString(),
   // Links セクションと同じ一覧。検索エンジンが同一人物のアカウントとして紐付ける

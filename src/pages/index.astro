@@ -40,10 +40,12 @@ const currentYear = new Date().getFullYear();
       <dl class="profile">
         {
           profiles.map((profile) => (
-            <>
+            <div>
               <dt>{profile.key}</dt>
-              <dd>{profile.value}</dd>
-            </>
+              {[profile.value].flat().map((value) => (
+                <dd>{value}</dd>
+              ))}
+            </div>
           ))
         }
       </dl>
