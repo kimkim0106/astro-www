@@ -80,7 +80,6 @@ export interface Project {
   slug: string;
   summary: string;
   description: string;
-  status: string;
   videos: ProjectVideo[];
   screenshots: ProjectScreenshot[];
   features: string[];
