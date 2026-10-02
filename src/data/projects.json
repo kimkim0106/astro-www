@@ -13,11 +13,11 @@
     "screenshots": [
       {
         "src": "/images/projects/gb-term/hello.png",
-        "caption": "ソフトウェアキーボードで入力行に文字を打ち込んだところ"
+        "caption": "ソフトウェアキーボード表示"
       },
       {
         "src": "/images/projects/gb-term/uname.png",
-        "caption": "Linux へシリアルコンソールでログインしコマンドを実行"
+        "caption": "Linuxへシリアルコンソールでログイン"
       },
       {
         "src": "/images/projects/gb-term/vim.png",
