@@ -6,10 +6,11 @@ import profiles from "../data/profiles.json";
 import links from "../data/links.json";
 import articles from "../data/articles.json";
 import books from "../data/books.json";
+import projects from "../data/projects.json";
 import decks from "../data/slides.json";
 
 const title = "kimkim0106's HP";
-const description = "kimkim0106's Website. My profile, blog, books, slides.";
+const description = "kimkim0106's Website. My profile, blog, books, slides, projects.";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -102,6 +103,24 @@ const currentYear = new Date().getFullYear();
       <span class="contents">
         More slides are available on <a href="https://speakerdeck.com/kimkim0106">Speaker Deck</a>.
       </span>
+
+      <h2 id="projects">Projects</h2>
+      <ul>
+        {
+          projects.slice(0, 3).map((project) => (
+            <li>
+              <a href={`/projects/${project.slug}/`}>{project.name}</a>: {project.summary}
+            </li>
+          ))
+        }
+      </ul>
+      {
+        projects.length >= 3 && (
+          <span class="contents">
+            More projects are available on <a href="/projects/">Projects</a>.
+          </span>
+        )
+      }
       <!--見たな ( ◠‿◠ ) -->
     </article>
     <footer class="copyright">

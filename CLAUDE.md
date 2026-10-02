@@ -46,6 +46,7 @@ reads the same JSON files as `index.astro`.
 - `/src/data/links.json` - Social media and platform links  
 - `/src/data/articles.json` - Recent blog posts (auto-generated from RSS)
 - `/src/data/slides.json` - Presentation slides (auto-generated from SpeakerDeck Atom feed)
+- `/src/data/projects.json` - Personal projects (top page shows up to 3; the link to `/projects/` appears once there are 3 or more)
 
 ### Blog Article Updates
 The `scripts/update-articles.ts` script:

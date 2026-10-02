@@ -97,6 +97,21 @@ const currentYear = new Date().getFullYear();
           ))
         }
       </ul>
+
+      {
+        project.references && project.references.length > 0 && (
+          <>
+            <h2>References</h2>
+            <ul class="project-list">
+              {project.references.map((reference) => (
+                <li>
+                  <a href={reference.url}>{reference.name}</a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
     </article>
 
     <footer class="copyright">

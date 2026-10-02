@@ -74,6 +74,11 @@ export interface ProjectRequirement {
   url?: string;
 }
 
+export interface ProjectReference {
+  name: string;
+  url: string;
+}
+
 /**
  * Personal project information
  */
@@ -86,6 +91,7 @@ export interface Project {
   screenshots: ProjectScreenshot[];
   features: string[];
   requirements: ProjectRequirement[];
+  references?: ProjectReference[];
 }
 
 /**
