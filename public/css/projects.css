@@ -19,3 +19,28 @@
 ul.project-list {
 	padding-left: 1.2em;
 }
+
+/* GB の画面 (160x144) を 4 倍に拡大した PNG。2 倍の大きさで並べ、ドットをぼかさない */
+.project-screenshots {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.project-screenshots figure {
+	margin: 0;
+	width: 320px;
+	max-width: 100%;
+}
+
+.project-screenshots img {
+	display: block;
+	width: 100%;
+	height: auto;
+	image-rendering: pixelated;
+	border: 1px solid var(--main-border-color);
+}
+
+.project-screenshots figcaption {
+	font-size: 0.9em;
+}

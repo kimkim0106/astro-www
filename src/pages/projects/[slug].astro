@@ -52,6 +52,18 @@ const currentYear = new Date().getFullYear();
       <h2>Description</h2>
       <p class="project-description">{project.description}</p>
 
+      <h2>Screenshots</h2>
+      <div class="project-screenshots">
+        {
+          project.screenshots.map((screenshot) => (
+            <figure>
+              <img src={screenshot.src} alt={screenshot.caption} width="320" height="288" loading="lazy" />
+              <figcaption>{screenshot.caption}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+
       <h2>Features</h2>
       <ul class="project-list">
         {project.features.map((feature) => <li>{feature}</li>)}

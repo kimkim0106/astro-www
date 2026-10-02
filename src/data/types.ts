@@ -57,6 +57,11 @@ export interface BookMarket {
   location: string;
 }
 
+export interface ProjectScreenshot {
+  src: string;
+  caption: string;
+}
+
 export interface ProjectRequirement {
   name: string;
   url?: string;
@@ -71,6 +76,7 @@ export interface Project {
   summary: string;
   description: string;
   status: string;
+  screenshots: ProjectScreenshot[];
   features: string[];
   requirements: ProjectRequirement[];
 }
