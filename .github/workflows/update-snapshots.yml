@@ -28,7 +28,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      # CI は headless 実行なので、通常版 Chromium のダウンロードは不要
+      run: npx playwright install --with-deps --only-shell
     - name: Update snapshots
       run: npm run update-snapshots
       env:

@@ -2,19 +2,21 @@ import { test, expect, type Page } from '@playwright/test';
 import books from '../src/data/books.json' with { type: 'json' };
 import projects from '../src/data/projects.json' with { type: 'json' };
 
-// フォント読み込み待機用のヘルパー関数
+// 撮影前にフォントの読み込みと描画の安定化を待つ
 async function waitForFontsAndContent(page: Page, path = '/') {
   await page.goto(path);
   await page.waitForLoadState('networkidle');
   
-  // 動的コンテンツの読み込み完了を待つ
-  await page.waitForSelector('article', { state: 'visible' });
+  // 静的ページの表示を確認する
+  await expect(page.locator('article')).toBeVisible();
   
   // フォント読み込み完了を待つ
   await page.evaluate(() => document.fonts.ready);
-  
-  // 少し余裕を持って待機
-  await page.waitForTimeout(1000);
+
+  // WebKit は読み込み後も画像の描画が変化するため、従来の安定化待機を残す
+  if (page.context().browser()?.browserType().name() === 'webkit') {
+    await page.waitForTimeout(1000);
+  }
 }
 
 test.describe('Visual Regression Tests', () => {
