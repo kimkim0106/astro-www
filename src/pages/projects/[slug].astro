@@ -25,7 +25,7 @@ const currentYear = new Date().getFullYear();
     <PageMeta
       title={title}
       description={description}
-      image={`/images/projects/${project.slug}.png`}
+      image={project.image}
       imageAlt={project.name}
     />
 
@@ -47,56 +47,72 @@ const currentYear = new Date().getFullYear();
       <p class="back-link"><a href="/projects/">← Back to Projects</a></p>
       <h1>{project.name}</h1>
 
-      <img class="project-logo" src={`/images/projects/${project.slug}.svg`} alt={`${project.name} logo`} />
+      {project.logo && <img class="project-logo" src={project.logo} alt={`${project.name} logo`} />}
 
       <h2>Description</h2>
       <p class="project-description">{project.description}</p>
 
-      <h2>Videos</h2>
-      <div class="project-videos">
-        {
-          project.videos.map((video) => (
-            <figure>
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${video.youtube_id}`}
-                title={video.title}
-                width="560"
-                height="315"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </figure>
-          ))
-        }
-      </div>
+      {project.videos.length > 0 && (
+        <>
+          <h2>Videos</h2>
+          <div class="project-videos">
+            {
+              project.videos.map((video) => (
+                <figure>
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${video.youtube_id}`}
+                    title={video.title}
+                    width="560"
+                    height="315"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </figure>
+              ))
+            }
+          </div>
+        </>
+      )}
 
-      <h2>Screenshots</h2>
-      <div class="project-screenshots">
-        {
-          project.screenshots.map((screenshot) => (
-            <figure>
-              <img src={screenshot.src} alt={screenshot.caption} width="320" height="288" loading="lazy" />
-              <figcaption>{screenshot.caption}</figcaption>
-            </figure>
-          ))
-        }
-      </div>
+      {project.screenshots.length > 0 && (
+        <>
+          <h2>Screenshots</h2>
+          <div class="project-screenshots">
+            {
+              project.screenshots.map((screenshot) => (
+                <figure>
+                  <img src={screenshot.src} alt={screenshot.caption} width="320" height="288" loading="lazy" />
+                  <figcaption>{screenshot.caption}</figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </>
+      )}
 
-      <h2>Features</h2>
-      <ul class="project-list">
-        {project.features.map((feature) => <li>{feature}</li>)}
-      </ul>
+      {project.features.length > 0 && (
+        <>
+          <h2>Features</h2>
+          <ul class="project-list">
+            {project.features.map((feature) => <li>{feature}</li>)}
+          </ul>
+        </>
+      )}
 
-      <h2>Requirements</h2>
-      <ul class="project-list">
-        {
-          project.requirements.map((requirement) => (
-            <li>{requirement.url ? <a href={requirement.url}>{requirement.name}</a> : requirement.name}</li>
-          ))
-        }
-      </ul>
+      {project.requirements.length > 0 && (
+        <>
+          <h2>Requirements</h2>
+          <ul class="project-list">
+            {
+              project.requirements.map((requirement) => (
+                <li>{"url" in requirement && requirement.url ? <a href={requirement.url}>{requirement.name}</a> : requirement.name}</li>
+              ))
+            }
+          </ul>
+        </>
+      )}
 
       {
         project.references && project.references.length > 0 && (

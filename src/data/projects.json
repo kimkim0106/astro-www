@@ -2,6 +2,8 @@
   {
     "name": "GB Term",
     "slug": "gb-term",
+    "logo": "/images/projects/gb-term.svg",
+    "image": "/images/projects/gb-term.png",
     "summary": "ゲームボーイカラー用端末エミュレータ",
     "description": "ゲームボーイカラー用の端末エミュレータです。\n外部通信ポート・赤外線通信ポートでソフトウェア UART 通信を行い、受信した文字を表示します。\nゲームボーイにはキーボードがないため、ソフトウェアキーボードを実装しています。\nまた、RS-232C レベル変換 IC を挟むことで PC やモデムとも通信が可能です。",
     "videos": [
@@ -48,5 +50,53 @@
         "url": "http://mydocuments.g2.xrea.com/html/gb/comm.html"
       }
     ]
+  },
+  {
+    "name": "GB Browser",
+    "slug": "gb-browser",
+    "summary": "ゲームボーイカラー用 Web ブラウザ",
+    "description": "ゲームボーイカラー用の Web ブラウザです。\nGB Term の発展形として、シリアル通信を利用した PPP 接続に対応し、Web ページを閲覧できます。",
+    "videos": [
+      {
+        "youtube_id": "1vj0MB9nYD8",
+        "title": "GB Browser でダイヤルアップ接続"
+      },
+      {
+        "youtube_id": "8Qj7S7_95qA",
+        "title": "GB Browser でウェブサイトにアクセス"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/images/projects/gb-browser/home.png",
+        "caption": "kimkim0106.net のトップページ表示"
+      },
+      {
+        "src": "/images/projects/gb-browser/gbterm.png",
+        "caption": "日本語ページの表示"
+      },
+      {
+        "src": "/images/projects/gb-browser/menu.png",
+        "caption": "メニューとモデム接続・転送速度の表示"
+      }
+    ],
+    "features": [
+      "外部通信ポートでのシリアル通信 (19,200 bps) と PPP 接続",
+      "DNS・TCP/IP・HTTP を実装、HTTPS・画像・JavaScript は未対応",
+      "日本語・漢字を自前で表示、文字コードは UTF-8・Shift_JIS・EUC-JP に対応",
+      "CSS に一部対応、文字色・背景色・要素の表示・非表示などが可能（外部 CSS は未対応）",
+      "ページのスクロール・リンク選択・直前のページに戻る機能",
+      "ソフトウェアキーボードでの URL 入力"
+    ],
+    "requirements": [
+      { "name": "ゲームボーイカラー" },
+      { "name": "Flash カートリッジ (256 KB 以上、設定保存には SRAM 8 KB 以上が必要)" },
+      {
+        "name": "3V・3.3V・5V系-RS232レベル変換基板 (秋月電子通商)",
+        "url": "https://akizukidenshi.com/catalog/g/g106464/"
+      },
+      { "name": "RS-232 接続のモデムとダイヤルアップ接続環境、もしくは pppd をインストールした PC とのシリアル接続" }
+    ],
+    "references": []
   }
 ]
