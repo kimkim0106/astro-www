@@ -5,6 +5,13 @@ import projects from '../src/data/projects.json' with { type: 'json' };
 // 撮影前にフォントの読み込みと描画の安定化を待つ
 async function waitForFontsAndContent(page: Page, path = '/') {
   await page.goto(path);
+  // ページ全体の比較では、画面外の遅延読み込み画像も読み込んでから撮影する。
+  await page.locator('img').evaluateAll(async (images: HTMLImageElement[]) => {
+    await Promise.all(images.map(async (image) => {
+      image.loading = 'eager';
+      await image.decode();
+    }));
+  });
   await page.waitForLoadState('networkidle');
   
   // 静的ページの表示を確認する
