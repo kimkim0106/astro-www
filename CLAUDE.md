@@ -18,6 +18,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run test` - Run visual regression tests with Playwright
 - `npm run update-snapshots` - Update visual regression snapshots
 - `npm run test:ui` - Run tests with Playwright UI mode
+- The `webkit` and `Mobile Safari` projects allow up to 400 differing pixels per screenshot (`maxDiffPixels` in `playwright.config.ts`). WebKit on Linux renders the bold Noto Sans JP headings with slightly different edges from run to run (124–250 pixels). Other projects compare exactly
 ## Architecture
 
 This is an Astro-based personal website that serves as a portfolio/homepage. The architecture is data-driven with automated content updates.

@@ -2,6 +2,16 @@ import { defineConfig, devices } from '@playwright/test';
 
 const defaultCiWorkers = 4;
 
+// WebKit (Linux) は Google Fonts の Noto Sans JP の太字 (700) の見出しを、
+// 実行ごとに輪郭が数ピクセルずつ違う形で描画する。レイアウトや本文 (500) は変わらない。
+// 同じブラウザのバージョンで実測した差は 1 枚あたり 124〜250 ピクセルだった。
+// 色の差が大きく、threshold を 0.5 に上げても吸収できないため、差分ピクセル数で許容する。
+// 過去の基準画像の更新で、内容が変わったときの差は最小でも 576 ピクセルだったので、
+// 上限はその間の 400 とし、文言の変更やレイアウト崩れは引き続き失敗にする。
+const webkitScreenshotTolerance = {
+  toHaveScreenshot: { maxDiffPixels: 400 },
+};
+
 function getWorkers(): number | string | undefined {
   const value = process.env.PLAYWRIGHT_WORKERS?.trim();
 
@@ -43,6 +53,7 @@ export default defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
+      expect: webkitScreenshotTolerance,
     },
     {
       name: 'Mobile Chrome',
@@ -51,6 +62,7 @@ export default defineConfig({
     {
       name: 'Mobile Safari',
       use: { ...devices['iPhone 12'] },
+      expect: webkitScreenshotTolerance,
     },
   ],
   webServer: {
