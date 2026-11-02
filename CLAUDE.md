@@ -68,7 +68,6 @@ The `scripts/update-slides.ts` script:
 - Custom CSS with CSS variables in `/public/css/common.css`
 - Automatic light/dark mode via prefers-color-scheme
 - Japanese language support with Noto fonts
-  - Noto Sans JP (weights 500 and 700) is self-hosted from `@fontsource/noto-sans-jp` via `/src/components/Fonts.astro`, not loaded from Google Fonts. Google Fonts serves both weights from one shared variable font file, which made WebKit render bold headings slightly differently from run to run and broke the visual regression tests
 - Responsive design
 
 ### Analytics
