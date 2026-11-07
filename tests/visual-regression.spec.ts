@@ -1,6 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 import books from '../src/data/books.json' with { type: 'json' };
 import projects from '../src/data/projects.json' with { type: 'json' };
+import { useTestFonts } from './test-fonts';
 
 // 撮影前にフォントの読み込みと描画の安定化を待つ
 async function waitForFontsAndContent(page: Page, path = '/') {
@@ -27,6 +28,11 @@ async function waitForFontsAndContent(page: Page, path = '/') {
 }
 
 test.describe('Visual Regression Tests', () => {
+  // Google Fonts の Noto Sans JP は応答ごとに中身が変わるため、テストでは固定のフォントに差し替える
+  test.beforeEach(async ({ page }) => {
+    await useTestFonts(page);
+  });
+
   test('Homepage visual regression', async ({ page }) => {
     await waitForFontsAndContent(page);
     
