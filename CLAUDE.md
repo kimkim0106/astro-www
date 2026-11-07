@@ -18,6 +18,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run test` - Run visual regression tests with Playwright
 - `npm run update-snapshots` - Update visual regression snapshots
 - `npm run test:ui` - Run tests with Playwright UI mode
+- The visual regression tests replace Noto Sans JP with pinned `@fontsource/noto-sans-jp` files (`tests/test-fonts.ts`), while the site itself keeps loading it from Google Fonts. Google Fonts randomly returns one of two CSS variants that point at different variable font files, which changed the rendered headings by 100–250 pixels between runs in every browser. Keep the weights in `tests/test-fonts.ts` in sync with the `wght@` values in the pages' Google Fonts URL
 ## Architecture
 
 This is an Astro-based personal website that serves as a portfolio/homepage. The architecture is data-driven with automated content updates.
