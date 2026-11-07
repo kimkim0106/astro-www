@@ -27,10 +27,20 @@ async function waitForFontsAndContent(page: Page, path = '/') {
   }
 }
 
+// YouTube の埋め込みはスクリーンショットでマスクしていて比較しないため、中身を空のページに差し替える。
+// 実際のプレーヤーを読み込むと外部への通信が続き、networkidle の待機がタイムアウトすることがある。
+// iframe の大きさは CSS (aspect-ratio) で決まるので、差し替えてもレイアウトは変わらない
+async function stubYouTubeEmbeds(page: Page) {
+  await page.route('https://www.youtube-nocookie.com/**', (route) =>
+    route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>YouTube</title>' }),
+  );
+}
+
 test.describe('Visual Regression Tests', () => {
-  // Google Fonts の Noto Sans JP は応答ごとに中身が変わるため、テストでは固定のフォントに差し替える
   test.beforeEach(async ({ page }) => {
+    // Google Fonts の Noto Sans JP は応答ごとに中身が変わるため、テストでは固定のフォントに差し替える
     await useTestFonts(page);
+    await stubYouTubeEmbeds(page);
   });
 
   test('Homepage visual regression', async ({ page }) => {
