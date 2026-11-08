@@ -20,15 +20,16 @@
     "test:ui": "playwright test --ui"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.10",
-    "astro": "^7.3.5",
+    "@astrojs/check": "^0.9.12",
+    "astro": "^7.4.4",
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.3",
-    "fast-xml-parser": "^5.11.1",
-    "temporal-polyfill": "^1.0.5",
+    "@fontsource/noto-sans-jp": "^5.3.1",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6",
+    "fast-xml-parser": "^5.11.2",
+    "temporal-polyfill": "^1.0.6",
     "tsx": "^4.23.15"
   }
 }

@@ -1,10 +1,18 @@
 import { test, expect, type Page } from '@playwright/test';
 import books from '../src/data/books.json' with { type: 'json' };
 import projects from '../src/data/projects.json' with { type: 'json' };
+import { useTestFonts } from './test-fonts';
 
 // 撮影前にフォントの読み込みと描画の安定化を待つ
 async function waitForFontsAndContent(page: Page, path = '/') {
   await page.goto(path);
+  // ページ全体の比較では、画面外の遅延読み込み画像も読み込んでから撮影する。
+  await page.locator('img').evaluateAll(async (images: HTMLImageElement[]) => {
+    await Promise.all(images.map(async (image) => {
+      image.loading = 'eager';
+      await image.decode();
+    }));
+  });
   await page.waitForLoadState('networkidle');
   
   // 静的ページの表示を確認する
@@ -19,7 +27,22 @@ async function waitForFontsAndContent(page: Page, path = '/') {
   }
 }
 
+// YouTube の埋め込みはスクリーンショットでマスクしていて比較しないため、中身を空のページに差し替える。
+// 実際のプレーヤーを読み込むと外部への通信が続き、networkidle の待機がタイムアウトすることがある。
+// iframe の大きさは CSS (aspect-ratio) で決まるので、差し替えてもレイアウトは変わらない
+async function stubYouTubeEmbeds(page: Page) {
+  await page.route('https://www.youtube-nocookie.com/**', (route) =>
+    route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>YouTube</title>' }),
+  );
+}
+
 test.describe('Visual Regression Tests', () => {
+  test.beforeEach(async ({ page }) => {
+    // Google Fonts の Noto Sans JP は応答ごとに中身が変わるため、テストでは固定のフォントに差し替える
+    await useTestFonts(page);
+    await stubYouTubeEmbeds(page);
+  });
+
   test('Homepage visual regression', async ({ page }) => {
     await waitForFontsAndContent(page);
     

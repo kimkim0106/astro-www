@@ -12,6 +12,13 @@ test.describe('Markdown version of the homepage', () => {
     expect(await response.text()).toContain("# kimkim0106's HP");
   });
 
+  test('/index.md does not repeat the meta description', async ({ request }) => {
+    const body = await (await request.get('/index.md')).text();
+
+    // meta description は HTML の head 向けの情報なので、本文には出さない
+    expect(body).toMatch(/^# kimkim0106's HP\n\n## About me\n/);
+  });
+
   test('/index.md has the same sections as the HTML version', async ({ request }) => {
     const body = await (await request.get('/index.md')).text();
 
