@@ -68,7 +68,7 @@ The `scripts/update-slides.ts` script:
 ### Styling and Theming
 - Custom CSS with CSS variables in `/public/css/common.css`
 - Automatic light/dark mode via prefers-color-scheme
-- Japanese language support with Noto fonts
+- Japanese language support with Noto Sans JP
 - Responsive design
 
 ### Analytics

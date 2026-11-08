@@ -45,7 +45,7 @@ export async function useTestFonts(page: Page): Promise<void> {
 
   await page.route(googleFontsCss, async (route) => {
     const response = await route.fetch();
-    // Noto Color Emoji など他のフォントは Google Fonts のまま使う
+    // Noto Sans JP 以外の @font-face があれば、Google Fonts のまま使う
     const css = (await response.text()).replace(notoSansJpFace, '');
     await route.fulfill({ response, body: `${css}\n${await testFontCss}` });
   });

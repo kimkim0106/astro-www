@@ -59,9 +59,8 @@ export function buildIndexMarkdown(site: URL): string {
   const currentYear = new Date().getFullYear();
 
   const sections = [
-    // Kept in sync with the `title` / `description` consts in src/pages/index.astro.
+    // Kept in sync with the <h1> in src/pages/index.astro.
     "# kimkim0106's HP",
-    "kimkim0106's Website. My profile, blog, books, slides, projects.",
 
     "## About me",
     profiles.map(formatProfile).join("\n"),
