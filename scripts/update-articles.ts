@@ -1,6 +1,5 @@
 import fs from 'fs';
 import { XMLParser } from 'fast-xml-parser';
-import { Temporal } from 'temporal-polyfill';
 import type { Article } from '../src/data/types.js';
 
 const targetFilePath = './src/data/articles.json';
